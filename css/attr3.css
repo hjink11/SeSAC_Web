@@ -1,0 +1,115 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 2000px;
+    background:  linear-gradient(white, orange);
+
+}
+
+div{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+
+.position-static{
+    /*이동 불가능*/
+    background-color: pink;
+    position: static;
+    top: 100px;
+    left: 500px;
+}
+.position-relative{
+    background-color: aquamarine;
+    /*자기자신 기준  자기 자리 남은 문서 흐름 해치지 않음*/
+    position: relative;
+    left: 100px;
+   /*top: 50px;*/
+}
+.position-absolute{
+    background-color: gold;
+    position: absolute;
+    right: 100px;
+    top: 100px;
+}
+.position-fixed{
+    /*무조건 뷰포트기준 스크롤 생겨도 따라*/
+    background-color: aqua;
+    position: fixed;
+    top: 100px;
+    right:200px;
+}
+
+.absolute2{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 10px;
+    background-color: deepskyblue;
+    top: 0;
+    bottom: 0;;
+}
+
+.parent{
+    position: relative;
+    width: 300px;
+    border: 3px dotted dodgerblue;
+}
+
+.parent > .circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.circle1{
+    background-color: #9afaff;
+    left: 200px
+}
+.circle2{
+    background-color: #84ff8d;
+    left: 150px
+}
+.circle3{
+    background-color: #ffeb88 ;
+    left: 100px;
+    z-index: 10;
+}
+.circle4{
+    background-color: #ffb680;
+    left: 50;
+    z-index: 5;
+}
+.circle5{
+    background-color: #ff7c7c;
+
+}
+
+.con500{
+    width: 500px;
+    height: 500px;
+    position: relative;
+}
+.con500 > .item{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}
+
+.item1{
+    background-color: red;
+    z-index: 10;
+}
+.item2{
+    background-color: yellow;
+    top: 30px;
+    left: 30px;
+}
+.item3{
+    background-color: salmon;
+    top: 60px;
+    left: 60px;
+    z-index: 5;
+}

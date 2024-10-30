@@ -1,0 +1,70 @@
+.box{
+    display: inline-block;
+    width: 400px;
+    height: 800px;
+    border: 1px solid black;
+}
+
+.background{
+    background-color: purple;
+    background: palevioletred;
+
+    /* color image repeat position size..*/
+    background: linear-gradient(to right, black, white);
+}
+
+.background-image{
+
+    background-image: url('./img/small_img.png');
+
+    /*repeat*/
+    background-repeat: repeat;
+    background-repeat: repeat-y;
+    background-repeat: repeat-x;
+    background-repeat: no-repeat;
+
+    /*position*/
+    background-position: top left;
+    background-position: center;
+    background-position: top center;
+    background-position: 100px 10px; /* x -> y 순서*/
+
+    /*size*/
+    background-size: auto;
+    /*하나만 쓰면 x축 가로 넓이 세로는 비율에 맞춰 자동설정 */
+    background-size: 100px 200px;
+    background-size: contain;  /*cover contain*/
+    background-size: cover;
+    background-size: 100px;
+
+    /*attachement*/
+    background-attachment: scroll;
+    background-attachment: fixed;
+}
+
+body{
+    height: 1000px;
+}
+
+.back{
+    width: 800px;
+    height: 500px;
+    display: inline-block;
+    margin: 20px;
+    background-color: skyblue;
+    background-image: url(./img/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a.png);
+}
+
+.back1{
+    background-position: center;
+    background-repeat: repeat-x;
+}
+.back2{
+    background-position: 100px 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.back3{
+    background-size: cover;
+    background-position: center;
+}
