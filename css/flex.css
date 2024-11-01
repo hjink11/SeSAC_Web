@@ -1,0 +1,12 @@
+.contianer{
+    width: 500px;
+    height: 500px;
+    background-color: olive;
+
+
+}
+.item{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
