@@ -78,7 +78,8 @@
 .box2:hover{
     background-color: salmon;
     transform: translateX(100px) scale(2);
-    /* transform: property duration timing-function delay; */
+    /* 위에걸
+    아래 단축속성으로 쓸때 transition: property(이자리) duration timing-function delay; */
     transition: transform 1s ease-in-out 2s;
     
 }
@@ -89,9 +90,9 @@
 
 
 .box3:hover{
-    /* opacity: 0; */
+    opacity: 0;
     /* visibility: hidden; display도 자연스럽지 않으니 opacitiy로 사용 호버보다 박스속성에 걸어 */
-    visibility: hidden;
+    /* visibility: hidden; */
 
 }
 

@@ -1,0 +1,35 @@
+body{
+    margin: 0; 
+    padding: 0;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: teal;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.box1:hover{
+    width: 200px;
+    transition: 1s ease-in-out; 
+}
+
+.box2:hover{
+ transform: translateX(50px) skewX(-45deg);
+ transition: 1s ease-in-out;
+}
+
+.box3:hover{
+    border-radius: 50%;
+    background-color: red;
+    transform: translateX(250px) rotate(180deg);
+    transition: 2s ease-in-out;
+}
+
+.box4:hover{
+    background-color: gold;
+    transform: translateY(25px) scale(1.5) rotateY(360deg);
+    transition: 1s ease-in;
+}
