@@ -11,6 +11,7 @@ console.log(div1.innerText)
 
 //아래는 태그를 그대로 읽음 innerHTML
 div1.innerHTML='여기는 <b>첫번째<b> 태그입니다.&hearts;' 
+console.log(div1.innerHTML)
 
 div1.textContent='     여기는 <b>첫번째<b> 태그입니다.&hearts;     /'
 //공백 그대로 textContent
