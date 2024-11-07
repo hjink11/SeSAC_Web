@@ -70,6 +70,7 @@ for(let i=0; i<arr.length; i++){
     sum2+=arr[i]
 }
 console.log(sum2)
+// 답 509
 
 //1이상 20이하 수 중에서 짝수만 더한 값 출력하기 20번 실행 중
 let sum3 = 0

@@ -52,3 +52,28 @@ for(let i=2; i<10; i++){
     }
 }
 */
+
+
+//벨로그 연습 
+//switch
+/*
+let score = prompt('성별을 입력하세요')
+switch(score){
+    case '여성':
+        console.log('여성입니다.')
+        break
+    case '남성':
+        console.log('남성입니다.')
+        break
+    default:
+        console.log('?')    
+}
+*/
+
+//배열 내부의 합 구하기 
+let arr = [99, 98, 85, 77, 100, 50]
+let value1 = 0
+for(let i=0; i < arr.length; i++){
+    value1 += arr[i]
+}
+console.log(value1)
