@@ -91,3 +91,5 @@ $('#todo-form').submit(function(e){
     //input초기화
     $('input[name="todo"]').val('')   //145라인 
 })
+
+
