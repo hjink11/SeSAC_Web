@@ -44,7 +44,12 @@ function changeColor(){
         div.style.backgroundColor='skyblue'
     }
 
-   //막내요소만 노랑색으로 변경 
+   //막내요소만 노랑색으로 변경  !!!!!! .nextElementSibiling 형제 요소가 null일 때
+   for( let di of divs){
+     if(di.nextElementSibling===null){
+        di.style.backgroundColor='yellow'
+     }
+   }
   
   
     
