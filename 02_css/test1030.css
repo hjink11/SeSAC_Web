@@ -1,0 +1,22 @@
+
+.container{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background:linear-gradient(60deg, #FFE600, 50%, #FF0080, #DB20DB)
+    
+}
+.pic{
+    background-image:url('./img/pooh.png');
+    background-size: cover;
+    width: 180px;
+    height: 180px;
+
+    border: 5px solid white;
+    box-sizing: border-box;
+    border-radius: 50%;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    background-color: aliceblue;
+}

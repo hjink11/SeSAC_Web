@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+header{
+    background-color: rgb(185, 225, 248);
+    width: 100%;
+    height: 100px;
+
+}
+
+header> .inner{
+    /* background-color: yellow;     inner 확인 */
+    max-width: 1200px;
+    margin: 0 auto;  
+    /* 스크롤 없게 max-width margin은 가운데 정렬  */
+    position: relative;
+    padding: 0 1rem;
+    
+    
+    display: flex;
+    overflow: hidden;
+}
+
+
+header> .inner > .logo{
+   margin: 40px 0;
+   cursor: pointer;
+   display: block;
+   position: relative;
+   left: 10px;
+}
+
+header> .inner > .menu{
+    display: flex;
+    font: 25px sans-serif;
+    width: 300px;
+    height: 30px;
+    justify-content: space-around;
+    position: relative;
+    top: 30px;
+    left: 25vw;
+}
+
+header> .inner> .menu> li{
+    cursor: pointer;
+}
+
+header > .inner >.menu-bar{
+  
+    display: none;
+}
+
+header> .small-menu{
+    display: none;
+}
+
+
+header> .small-menu> li{
+    font: 20px sans-serif;
+    color: white;
+    background-color: rgb(1, 48, 109);
+    text-align: center;
+    height: 50px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width:768px) {
+    header> .inner> .menu{
+        display: none;
+    }
+
+    header> .inner> .logo{
+        position:relative;
+        left: 45vw;
+    }
+    
+    
+    /* header>.small-menu{
+        display: block;
+    }
+
+    header> .small-menu> li{
+        font: 20px sans-serif;
+        color: white;
+        background-color: rgb(1, 48, 109);
+        text-align: center;
+        height: 50px;
+        padding-top: 10px;
+        cursor: pointer;
+    } */
+
+    header>.small-menu> li:hover{
+        background-color: rgb(1, 27, 52);
+    }
+
+    header > .inner >.menu-bar{
+       
+        margin: 40px 0;
+        cursor: pointer;
+        display: block;
+        position:relative;
+        left: 80vw;
+    }
+
+}

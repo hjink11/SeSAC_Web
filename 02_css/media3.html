@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container{
+            display: flex;
+
+        }
+        .container> div{
+              width: 150px;
+              height: 150px;
+              border-radius: 10%;
+              background-color: yellowgreen;
+              border: 1px solid coral;
+              margin: 20px;
+        }
+
+        @media (max-width:700px) {
+            .container{
+                display: block;
+            }
+        }
+    </style>
+    <title>media query 실습</title>
+</head>
+<body>
+    <div class="container">
+    <div></div>
+    <div ></div>
+    <div></div>    
+    </div>
+</body>
+</html>
