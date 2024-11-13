@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- jQ -->
+    <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- swiper css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        body{
+            position: relative;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }        
+        
+        /* swipe */
+        .swiper{
+            width: 100%;
+            height: 400px;
+        }
+        .swiper-slide{
+           /* background-position: center; */
+           /* background-size: cover; */
+           text-align: center;
+           font-size: 18px;
+           background: #bc3131;
+           display: flex;
+          justify-content: center;
+           align-items: center;
+           background-color: rgb(36, 22, 3);
+        }
+        .swiper-slide img {
+           display: block;
+           width: 90%;
+           height: 400px;
+           object-fit: cover;
+        }
+
+        .swiper-button-prev,.swiper-button-next{
+            --swiper-theme-color:rgb(90, 67, 43);
+        }
+
+        .swiper .swiper-pagination-bullet {
+          background-color: #8a210e;
+            }
+
+
+    </style>
+
+    <title>slide</title>
+</head>
+<body>
+   <div class="swiper mySwiper">
+    <div class="swiper-wrapper ">
+        
+        <div class="swiper-slide">
+            <img src="./img/img1.jpg" alt="img1">
+        </div>
+        <div class="swiper-slide ">
+            <img src="./img/img2.jpg" alt="img2">
+        </div>
+        <div class="swiper-slide">
+            <img src="./img/img3.jpg" alt="img3">
+        </div>
+        <div class="swiper-slide">
+            <img src="./img/img4.jpg" alt="img4">
+        </div>
+        <div class="swiper-slide">
+            <img src="./img/img5.jpg" alt="img5">
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    
+</body>
+
+<!-- Swiper.js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- my -->
+<script src="prac3.js"></script>
+</html>

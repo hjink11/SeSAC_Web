@@ -18,6 +18,10 @@ caption{
     font-size: 20px;
 }
 
+th{
+  height: 50px;
+}
+
 td{
     width: 100px;
     height: 100px;
