@@ -70,6 +70,7 @@ header> .small-menu> li{
     height: 50px;
     padding-top: 10px;
     cursor: pointer;
+    display: none;
 }
 
 
@@ -98,6 +99,13 @@ header> .small-menu> li{
         padding-top: 10px;
         cursor: pointer;
     } */
+
+    header>.small-menu> li{
+        display: block;       
+        /* breakpoint에만 보이게 수정 이렇게 쉬운디 ㅜㅜ 
+          ul아니라 li에 디스플레이 변경임 resise 이벤트도 아녔음 
+        */
+    }
 
     header>.small-menu> li:hover{
         background-color: rgb(1, 27, 52);
