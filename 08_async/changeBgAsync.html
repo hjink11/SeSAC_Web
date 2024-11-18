@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>gg</h3>
+  </body>
+  <script>
+    function changeColor(color) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          document.body.style.background = color;
+          resolve();
+        }, 1000);
+      });
+    }
+
+    //promise 객체 < then
+    // changeColor9("red").then(()=>){
+    //     return changeColor("orange");   //여기서 안됨 다시 한
+    // }).then(()=>{
+    //     return changeColor('yellow')
+    // })
+    // .then(()=>changeColor('green'))
+    // .then(()=>changeColor('blue'))
+
+    //async
+    async function execute() {
+      await changeColor("red");
+      await changeColor("orange");
+      await changeColor("yellow");
+      await changeColor("green");
+      await changeColor("blue");
+      await changeColor("navy");
+      await changeColor("violet");
+    }
+
+    execute();
+  </script>
+</html>
