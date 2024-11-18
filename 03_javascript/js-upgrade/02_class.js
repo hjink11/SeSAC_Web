@@ -42,8 +42,7 @@ class Apartment extends House{
         return `${this.year}년에 지어진 ${this.name}.
         총 층수는 ${this.floor}층이고, 창문의 개수는 ${this.window}`
     }
-
-    // overriding (메소드 재정의) 부모 클래스의 메소드 이름은 같고 내용은 다르게 / 기능이 흡사할 떄 
+   // overriding (메소드 재정의) 부모 클래스의 메소드 이름은 같고 내용은 다르게 / 기능이 흡사할 떄 
     getWindow(){
         console.log(`${this.name}의 창문은 
             ${this.window}개 입니다. ${this.windowMaker}에서 만들었어요`)

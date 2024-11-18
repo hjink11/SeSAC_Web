@@ -22,9 +22,9 @@ let value2='first'
 
 //아래는 정석으로 교환 
 let temp; // 값을 저장을 위한 임시 변수 (값 교환을 위한)
-temp = value1 //temp= second
-value1 = value2 // value1 =first , 2도 first
-value2 = temp // value2가 second 
+temp = value1 ;//temp= second
+value1 = value2; // value1 =first , 2도 first
+value2 = temp ;// value2가 second 
 console.log(value1, value2)
 
 value1 = 'second';
