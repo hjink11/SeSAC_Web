@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        color: chocolate;
+        font-weight: 600;
+      }
+      div {
+        width: 99%;
+        height: 30px;
+        border: 1px solid darkslategray;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>결과 확인하기</h2>
+    <p><span> <%=userInfo.name%></span> 님 환영합니다!</p>
+    <div>성별 : <%=userInfo.gender%></div>
+
+    <div>
+      <p><%=userInfo.year%>년 <%=userInfo.month%>월 <%=userInfo.day%> 일</p>
+    </div>
+
+    <div>
+      <p>관심사 : <%=userInfo.interest%></p>
+    </div>
+
+    <!-- prac2 -->
+    <h3>다른 태그 작성해보기</h3>
+
+    <p>
+      좋아하는 색 :
+      <span style="color: <%=userInfo.color%>"><%=userInfo.color%></span>
+    </p>
+
+    <p>하루 중 가장 좋아하는 시간 : <%=userInfo.time%></p>
+
+    <a href="/">HOME</a>
+  </body>
+</html>
