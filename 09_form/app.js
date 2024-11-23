@@ -73,14 +73,16 @@ app.get("/practice2", (req, res) => {
 app.get("/practice1Form", function (req, res) {
   res.render("practice/practice_result", {
     userInfo: req.query,
+    addInfo: false, //practice1에서 적은 정보를 주고 있음
   });
 });
 
-//4.주소 지정 form post 요청
+//4.주소 지정(/practice2Form)  form post 요청
 app.post("/practice2Form", function (req, res) {
   console.log(req.body); //지우기 확인용
   res.render("practice/practice_result", {
     userInfo: req.body,
+    addInfo: true,
   });
 });
 
