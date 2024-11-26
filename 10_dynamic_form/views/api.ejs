@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>외부 API 사용</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>간단 Open API 사용하기</h1>
+
+    <h3>고양이 사진 바꾸기</h3>
+    <img src="" alt="기본이미지" id="img" />
+    <button onclick="changeCatImg()">고양이 사진 변경</button>
+
+    <h3>영화 정보 가져오기</h3>
+    <ul>
+      <!-- <div>
+            <img src="영화 이미지" alt="">
+            <p>영화 제목</p>
+        </div> -->
+    </ul>
+    <script>
+      //https://api.thecatapi.com/v1/images/search
+
+      function changeCatImg() {
+        fetch("https://api.thecatapi.com/v1/images/search")
+          .then(function (res) {
+            console.log(res);
+            return res.json(); //배열 형태의 데이터를 들어오기 때문에 json
+          })
+          .then(function (data) {
+            console.log(data); // [{id, url, width, height }] 등이 있는지 확인
+            const img = document.getElementById("img");
+            img.src = data[0].url;
+            img.alt = `${data[0].id}-cat-img`;
+            img.width = 400;
+          });
+      }
+
+      //apikey : 2e2df2bd 가 기본키고 2e2df2bd&s=는 서치기능으로 필수
+      // 내가 메일로 받은 키는 : 5c4cdd6d
+      //http://www.omdbapi.com/?apikey=2e2df2bd&
+
+      const word = "love"; // love라는 단어가 들어가는 걸 검색하려고 전역변수 선언
+      axios({
+        method: "get",
+        url: "http://www.omdbapi.com/?apikey=5c4cdd6d&s=" + word,
+      }).then((res) => {
+        console.log(res.data); // 객체형태로 가져옴 {Search, totalResults, Respose} 콘솔찍어서 꼭 확인
+        console.log(res.data.Search); // 배열형태임
+        // 배열 {Poster, Title, Type, Year, imdbID}
+
+        const cotainer = document.querySelector("ul");
+        for (let movie of res.data.Search) {
+          //   console.log(movie.Title);
+          //   console.log(movie.Poster);
+          //   console.log(movie.imdbID);
+          // ul > div>img+p
+          const div = document.createElement("div");
+          const img = document.createElement("img");
+          const p = document.createElement("p");
+
+          img.src = movie.Poster;
+          img.alt = movie.imdbID + " movie image";
+
+          p.innerText = movie.Title;
+          div.append(img, p);
+          cotainer.append(div);
+        }
+      });
+    </script>
+  </body>
+</html>

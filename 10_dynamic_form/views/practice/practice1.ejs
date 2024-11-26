@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 문제 1</title>
+  </head>
+  <!-- axios CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    form {
+      width: 400px;
+      height: 500px;
+      display: block;
+      position: relative;
+    }
+    #name {
+      border-width: 1px;
+    }
+  </style>
+  <body>
+    <h1>실습문제1</h1>
+
+    <form name="register">
+      <label>
+        이름
+        <input type="text" name="name" title="이름을 입력하세요" />
+      </label>
+      <br />
+
+      <fieldset>
+        <legend>성별</legend>
+        <label for="radio">
+          <input type="radio" name="gender" value="남자" />
+          남자
+        </label>
+        <label for="radio">
+          <input type="radio" name="gender" value="여자" />
+          여자
+        </label>
+      </fieldset>
+      <br />
+
+      <fieldset>
+        <legend>생년월일</legend>
+        <label>
+          <select name="year" id="year">
+            <%for(let i = 2024; i>=1980; i--){ %>
+            <option value="<%=i%>"><%=i%></option>
+
+            <% } %>
+          </select>
+          년
+        </label>
+
+        <label>
+          <select name="month" id="month">
+            <%for(let i = 1; i<=12; i++){ %>
+            <option value="<%=i%>"><%=i%></option>
+
+            <% } %>
+          </select>
+          월
+        </label>
+
+        <label>
+          <select name="date" id="date">
+            <%for(let i = 1; i<=31; i++){ %>
+            <option value="<%=i%>"><%=i%></option>
+
+            <% } %>
+          </select>
+          일
+        </label>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>관심사</legend>
+        <label>
+          <input type="checkbox" name="favorite" id="checkk" value="여행" />
+          여행
+        </label>
+        <label>
+          <input type="checkbox" name="favorite" id="checkk" value="패션" />
+          패션
+        </label>
+        <label>
+          <input type="checkbox" name="favorite" id="checkk" value="음식" />
+          음식
+        </label>
+      </fieldset>
+      <br />
+      <button type="button" onclick="submitInfo()">제출</button>
+
+      <div class="result"></div>
+    </form>
+    <script>
+      const form = document.forms["register"];
+      const resultB = document.querySelector(".result");
+
+      function submitInfo() {
+        //GEt/ axios-practice1
+
+        const favValue = [];
+        form.favorite.forEach((input) => {
+          if (input.checked) favValue.push(input.value);
+        });
+        console.log(favValue);
+        const data = {
+          name: form.name.value,
+          gender: form.gender.value,
+          favorite: favValue,
+        };
+        axios({
+          method: "get",
+          url: "/axios-practice1",
+          params: data,
+        }).then((response) => {
+          console.log(response.data);
+          const { name, favorite } = response.data;
+          //~ 님 환영 합니다. 가입이 완료 되었습니다. 취미는 ~~
+          resultB.textContent = `${name}님 환영합니다. 가입이 완료되었습니다. 취미는 ${favorite}`;
+        });
+      }
+    </script>
+  </body>
+</html>

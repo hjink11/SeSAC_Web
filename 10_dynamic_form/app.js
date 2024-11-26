@@ -55,6 +55,42 @@ app.post("/fetch", (req, res) => {
   res.send(req.body);
 });
 
+//외부 api 사용하기
+app.get("/api", (req, res) => {
+  res.render("api");
+});
+
+//실습1
+app.get("/practice1", (req, res) => {
+  res.render("practice/practice1");
+});
+
+app.get("/axios-practice1", (req, res) => {
+  console.log(res.query);
+  res.send(res.query);
+});
+
+//실습2
+app.get("/practice2", (req, res) => {
+  res.render("practice/practice2.ejs");
+});
+
+// /practice2 POST
+const realId = "banana";
+const realPw = "4321";
+
+app.post("/practice2", (req, res) => {
+  console.log(req.body);
+  // { userId: 'fff', userPw: 'fff' }
+  // const { userId, userPw } = req.body;
+  if (realId === req.body.userId && realPw === req.body.userPw) {
+    res.send({ isSuccess: true, userId: req.body.userId });
+  } else {
+    res.send({ isSuccess: false });
+  }
+  // res.send("응답완료");
+});
+
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
