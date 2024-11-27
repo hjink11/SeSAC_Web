@@ -28,6 +28,7 @@ const uploadDetail = multer({
     destination: function (req, file, done) {
       done(null, "uploads/"); // 어디에 저장될지 경로 설정!
       //  uploads 라는 폴더가 미리 만들어져있어야 함
+      //done은 콜백함수 이름은 마음대로
     },
     filename: function (req, file, done) {
       // const extension = path.extname(파일이름.확장자) >> 확장자만
@@ -35,7 +36,7 @@ const uploadDetail = multer({
 
       //   path.basename(파일이름.확장자, 확장자) >> 파일이름만 리턴 //26139_img
       done(
-        null,
+        null, //아래는 중복이름있을까봐 date로
         path.basename(file.originalname, extension) + Date.now() + extension
       );
 
@@ -44,7 +45,7 @@ const uploadDetail = multer({
     },
   }),
 
-  limits: { fieldSize: 5 * 1024 * 1024 }, // 5MB
+  limits: { fieldSize: 5 * 1024 * 1024 }, // 5MB 바이트기준
 });
 
 app.get("/", (req, res) => {
@@ -115,6 +116,7 @@ app.post(
 //동적폼 파일 업로드  아래에 single안에 append 했던 이릉ㅁ?
 app.post("/dynamicUpload", uploadDetail.single("dynamicFile"), (req, res) => {
   console.log(req.file);
+  console.log(req.body);
   // .then에 들어 있는거  destination: "uploads/"
 
   // encoding: "7bit"
@@ -130,7 +132,10 @@ app.post("/dynamicUpload", uploadDetail.single("dynamicFile"), (req, res) => {
   // path: "uploads/pooh_7201732520726709.png"
 
   // size: 176304
-  res.send(req.file);
+
+  //하나의 객체에 합쳐서 보내는 방법
+  //res.send(...req.body, ...req.file); //전개 연산자 ...
+  res.send({ file: req.file, fileInfo: req.body });
 });
 
 app.listen(PORT, () => {

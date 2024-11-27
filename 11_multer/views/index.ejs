@@ -11,6 +11,10 @@
         border: 2px solid #ccc;
         padding: 1rem;
       }
+
+      .profile {
+        background-color: pink;
+      }
     </style>
   </head>
   <body>
@@ -118,7 +122,49 @@
         });
       }
 
-      function fileAndTextload() {}
+      // 글과 파일을 함께 업로드
+      function fileAndTextload() {
+        const formData = new FormData(); //파일을 보내려면 꼭 폼 만들어서
+        //input type="file" 파일정보를 서버로 보내기 위해 선택
+        const file = document.getElementById("dynamicFile");
+        // input type="text" 이미지에 대한 제목 = 글자정보를 서버로 보내기 위해
+        const title = document.getElementById("dynamicTitle");
+        //사진 src, alt 속성 바꾸기 위해
+        const img = document.querySelector("img");
+
+        console.log(file.files);
+        formData.append("dynamicFile", file.files[0]); //위에 콘솔창에 정보 보면 이렇게(키이름자기맘)
+        formData.append("dynamicTitle", title.value);
+
+        /*
+        formData ={
+        daynamicFile:파일정보
+        dynamicText:" 사진제목"
+        
+        }
+        **/
+
+        axios({
+          method: "post",
+          url: "/dynamicUpload",
+          data: formData,
+          header: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+          .then((res) => {
+            console.log(res.data);
+            console.log(res.data.fileInfo.dynamicTitle); //제목과 아래 경로 정보를 바탕으로 src바꾸기
+            console.log(res.data.file.path);
+
+            img.src = "/" + res.data.file.path; // path는 / 없이 경로만 나오니 /를 앞에서 더해서
+            img.alt = res.data.fileInfo.dynamicTitle + "사진";
+            //class = tit
+            document.querySelector(".tit").innerText =
+              res.data.fileInfo.dynamicTitle;
+          })
+          .catch((err) => console.error("error", err));
+      }
     </script>
   </body>
 </html>
