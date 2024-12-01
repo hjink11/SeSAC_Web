@@ -1,3 +1,4 @@
+-- Active: 1732688637371@@127.0.0.1@3306@sesac
 show DATABASES;
 CREATE DATABASE mydatabase DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 CREATE DATABASE sesac CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -146,4 +147,99 @@ SELECT name, address FROM user WHERE address LIKE "서울%" LIMIT 2;
 
 -- order를 먼저 쓰고 limit
 SELECT name, address FROM user WHERE address LIKE "서울%" ORDER BY name ASC LIMIT 3;
+
+SELECT * FROM user;
+
+
+-- update 문
+-- update 테이블이름 set 컬럼명="바꿀 데이터" where 조건;
+UPDATE user SET address="서울특별시 도봉구" WHERE id=1;
+
+UPDATE user 
+SET address="제주특별자치도 제주시", name ='이지현'
+WHERE id=2;
+
+-- delete 문
+/*
+DELETE FROM 테이블이름
+WHERE 조건
+*/
+DELETE FROM user WHERE id=11;
+
+DELETE FROM user WHERE id>8;
+
+CREATE Table student(
+  id int AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(10) NOT NULL DEFAULT '홍길동',
+  hobby VARCHAR(20)
+);
+
+DESC student;
+
+INSERT INTO student(hobby) VALUES('등산');   -- id는 오토 ~ 니까 알아서 늘어나고 name은 디폴트값이 있어서 생성
+INSERT INTO student(hobby,name) VALUES('등산','박상우');
+
+SELECT * FROM student;
+
+-- HAVING과 GROUP BY
+DROP TABLE IF EXISTS user;  --user 테이블이 존재할 경우 삭제;
+SHOW TABLES;
+
+CREATE Table user(
+  user_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(10) NOT NULL,
+  specialize ENUM('축구','야구','클라이밍','배드민턴') NOT NULL, 
+  gender ENUM('남','여') NOT NULL,
+  career_year INT NOT NULL
+);
+
+-- 김판곤이랑 김광현이랑 순서 바꿈
+INSERT INTO user VALUES(NULL, '김판곤', '축구', '남', 40);
+INSERT INTO user VALUES(NULL, '손흥민', '축구', '남',15);
+INSERT INTO user VALUES(NULL, '김자인', '클라이밍', '여',10);
+INSERT INTO user VALUES(NULL, '김동우', '축구', '남',1);
+INSERT INTO user VALUES(NULL, '전유진', '배드민턴', '여',2);
+INSERT INTO user VALUES(NULL, '이대호', '야구', '남',24);
+INSERT INTO user VALUES(NULL, '안세영', '배드민턴', '여',11);
+INSERT INTO user VALUES(NULL, '배서연', '클라이밍', '여',3);
+INSERT INTO user VALUES(NULL, '황희찬', '축구', '남',9);
+INSERT INTO user VALUES(NULL, '지소연', '축구', '여',17);
+INSERT INTO user VALUES(NULL, '이정후', '야구', '남',11);
+INSERT INTO user VALUES(NULL, '김광현', '야구', '남',21);
+
+
+SELECT * FROM user;
+
+-- 집계 함수  count, sum, avg, min, max
+SELECT COUNT(specialize) FROM user WHERE specialize='축구';  -- specialize 가 축구인 튜플의 개수
+
+SELECT SUM(career_year) from user; -- 전체 선수의 경력 합
+SELECT SUM(career_year) 
+from user 
+WHERE specialize="축구"; -- 축구 선수의 경력 합
+SELECT AVG(career_year) 
+from user 
+WHERE specialize="축구"; -- 축구 선수의 경력 평균
+SELECT MIN(career_year) 
+from user 
+WHERE specialize="축구"; -- 축구 선수 중 경력이 가장 작은 사람
+SELECT MAX(career_year) 
+from user 
+WHERE specialize="축구"; -- 축구 선수 중 경력이 가장 많은 사람
+
+
+
+
+
+
+--group by 
+SELECT specialize FROM user GROUP BY specialize;
+SELECT specialize, COUNT(specialize) FROM user GROUP BY specialize;
+
+--having 
+SELECT specialize, COUNT(specialize) FROM user WHERE gender ='여'
+GROUP BY specialize HAVING COUNT(specialize) >=2;   -- 그룹화된 테이블의 조건을 다는 것 
+
+
+
 
