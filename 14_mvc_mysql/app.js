@@ -2,28 +2,19 @@ const express = require("express");
 const app = express();
 const PORT = 8080;
 
-//미들웨어 설정
 app.set("view engine", "ejs");
 app.set("views", "./views");
-
-//body-parser
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-//index
-// app.get("/", (req, res) => {
-//   res.render("index");
-// });
+app.use("/static", express.static(__dirname + "/static"));
 
 //라우터
-//const indexRouter = require("./routes") //아래와 같은거
-const indexRouter = require("./routes/index"); //라우트에 만들었던
+const indexRouter = require("./routes"); //index만 파일이름 생략가능
 app.use("/", indexRouter);
 
 //404
 app.get("*", (req, res) => {
-  //res.render("404");
-  res.render("<h2>Page Not Found</h2>");
+  res.render("404");
 });
 
 app.listen(PORT, () => {

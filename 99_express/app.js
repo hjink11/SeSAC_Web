@@ -15,7 +15,7 @@ let tempDB = [
     contentID: 2,
     title: "제목22222",
     content: "토요일 수업..",
-    img: "/static/img/pooh.png",
+    img: "/static/img/pooh_720.png",
   },
   {
     contentID: 3,
@@ -130,13 +130,14 @@ app.get("/content/:contentID", (req, res) => {
   //   const { name, pw } = data;
   const { contentID } = req.params;
 
-  /* 배열.filter 사용해서 원하는 데이터 찾기 */
+  /* 배열.filter 사용해서 원하는 데이터 찾기 (조건에 맞는 데이터만 모아 배열로) */
   const contentData = tempDB.filter((obj) => {
     return obj.contentID === Number(contentID);
   });
 
   // filter 의 반환값은 배열이기 때문에 객체를 가져오기 위해 0번으로 접근
   const contentObj = contentData[0];
+
   /* 
   {
   contentID: 100,
@@ -152,13 +153,13 @@ app.get("/content/:contentID", (req, res) => {
   //   });
   //   console.log(newArray);
 
-  // if (contentObj) {
-  //   res.render("content", contentObj);
-  // } else {
-  //   res.render("404");
-  // }
-
-  res.send("응답 완료");
+  if (contentObj) {
+    res.render("content", contentObj);
+  } else {
+    res.render("404");
+  }
+  // 챗이 지우라고 아래
+  //res.send("응답 완료");
 });
 
 app.get("/write", (req, res) => {
@@ -215,6 +216,7 @@ app.delete("/blog/delete", (req, res) => {
   });
   tempDB = tempDB2;
 
+  // 챗이 지라고 해서 주석
   // res.send("응답 완료");
   res.end();
 });

@@ -1,13 +1,14 @@
-const Comment = require("../model/Comment");
+const Comment = require("../model/Comment"); //모델을 불러옴
 
 // GET /
 exports.main = (req, res) => {
+  //함수 표현식으로  페이지를 렌더 시킴
   res.render("index");
 };
 
 // GET /comments
 exports.comments = (req, res) => {
-  console.log(Comment.commentInfos());
+  console.log(Comment.commentInfos()); //모델의 댓글 사용
   res.render("comments", { commentInfos: Comment.commentInfos() });
 };
 
