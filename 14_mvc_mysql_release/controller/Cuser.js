@@ -35,6 +35,7 @@ exports.postsignUp = (req, res) => {
 
 //signin GET
 exports.getsignIn = (req, res) => {
+  console.log("body", req.body);
   res.render("signin");
 };
 
