@@ -129,8 +129,7 @@ function editDo(id) {
       children[1].textContent = form.name.value; //작성자
       children[2].textContent = form.comment.value; //방명록 내용
 
-      editCancel(); // 초기화인데 안됨
-      //되긴 되는데 오류남
+      editCancel(); // !
     })
     .catch((err) => console.error(err));
 }

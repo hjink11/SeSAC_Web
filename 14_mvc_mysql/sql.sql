@@ -1,6 +1,6 @@
 show DATABASES;
 
-USE sesac
+USE sesac;
 
 CREATE Table visitor(
     id INT AUTO_INCREMENT PRIMARY KEY,
