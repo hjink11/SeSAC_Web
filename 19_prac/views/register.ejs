@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <!-- axios cdn 불러오기 -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
+      integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <a href="/">HOME</a>
+    <h1>회원가입</h1>
+    <form name="register-form">
+      <label for="userid">아이디</label>
+      <input
+        type="text"
+        name="userid"
+        placeholder="아이디를 입력하세요"
+        required
+      />
+      <br />
+      <label for="userpw">비밀번호</label>
+      <input
+        type="password"
+        name="userpw"
+        placeholder="비밀번호를 입력하세요"
+        required
+      />
+      <br />
+      <label for="username">이름</label>
+      <input
+        type="text"
+        name="username"
+        placeholder="이름을 입력하세요"
+        required
+      />
+      <br />
+      <button type="button" onclick="register()">회원가입</button>
+    </form>
+
+    <script>
+      const form = document.forms["register-form"];
+      async function register() {
+        if (form.userid.value.length === 0 || form.userpw.value.length === 0) {
+          if (form.name.value.length === 0) {
+            alert("모두 입력해 주세요 ");
+            return;
+          }
+        }
+
+        try {
+          const registerResult = await axios({
+            method: "post",
+            url: "/register",
+            data: {
+              userid: form.userid.value,
+              pw: form.userpw.value,
+              name: form.username.value,
+            },
+          });
+        } catch (err) {
+          console.error("회원가입 err", err);
+        }
+      }
+    </script>
+  </body>
+</html>
