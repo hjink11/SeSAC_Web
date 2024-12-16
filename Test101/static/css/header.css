@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Noto Sans KR", serif;
 }
 /* 헤더 */
 header {
@@ -11,6 +12,7 @@ header {
   position: relative;
   display: flex;
   align-items: center;
+  margin-bottom: 50px;
 }
 header > .logo {
   margin: 0 auto;

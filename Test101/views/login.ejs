@@ -6,69 +6,35 @@
     <title>로그인</title>
     <!-- cdn,font,jquery-->
     <%- include("./includes/head") %>
-    <link rel="stylesheet" href="/static/header.css" />
-    <style>
-      /* form */
-      .logindiv {
-        width: 100vw;
-        height: 300px;
-        /* border: 1px solid salmon; */
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      form > input {
-        width: 300px;
-        height: 40px;
-        border-radius: 5px;
-        border: 1px solid lightgray;
-      }
-      form > button {
-        width: 300px;
-        height: 40px;
-        border-radius: 5px;
-        margin-top: 10px;
-        cursor: pointer;
-      }
-      .loginB {
-        background-color: rgb(255, 133, 117);
-        color: white;
-        border: none;
-      }
-      .registerB {
-        background-color: white;
-        border: 1px solid lightgray;
-      }
-      [type="checkbox"] {
-        accent-color: rgb(240, 240, 240);
-      }
-
-      label {
-        font-size: 10px;
-        color: lightslategray;
-      }
-    </style>
+    <link rel="stylesheet" href="/static/css/header.css" />
+    <link rel="stylesheet" href="/static/css/login.css" />
   </head>
   <body>
-    <%-include("./includes/header") %>
-    <!-- <header>
-      <a href="/">
-        <i class="fa-solid fa-arrow-left fa-xl" style="color: #000000"></i>
+    <!-- include("./includes/header") %> -->
+    <header>
+      <a href="#" onClick="history.back()">
+        <i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000"></i>
       </a>
 
-      <p class="loginlogo">로그인</p>
-    </header> -->
+      <p class="logo">로그인</p>
+    </header>
     <!-- 시맨틱 태그라면 <main> > section 이나 article(세션 안으로 들어 갈 수도) > figure -->
     <div class="con">
       <div class="logindiv">
         <form name="loginForm">
-          <input type="text" name="userid" placeholder=" 아이디" required />
+          <input
+            type="text"
+            name="userid"
+            class="userid"
+            placeholder="  아이디"
+            required
+          />
           <br />
           <input
             type="password"
             name="userpw"
-            placeholder=" 비밀번호"
+            class="userpw"
+            placeholder="  비밀번호"
             required
           />
           <br />

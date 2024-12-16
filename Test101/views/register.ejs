@@ -6,12 +6,19 @@
     <title>회원가입</title>
     <!-- cdn,font,jquery-->
     <%- include("./includes/head") %>
-    <link rel="stylesheet" href="/static/header.css" />
-    <link rel="stylesheet" href="/static/register.css" />
+    <link rel="stylesheet" href="/static/css/header.css" />
+    <link rel="stylesheet" href="/static/css/register.css" />
   </head>
   <body>
     <!-- 헤더 -->
-    <%-include("./includes/header") %>
+    <!-- include("./includes/header") %> -->
+    <header>
+      <a href="#" onClick="history.back()">
+        <i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000"></i>
+      </a>
+
+      <p class="logo">회원가입</p>
+    </header>
 
     <div class="con">
       <div class="regidiv">
@@ -20,38 +27,113 @@
             type="text"
             name="userid"
             class="userid"
-            placeholder="  아이디"
+            placeholder="아이디"
           />
-          <button type="button" class="useridB">확인</button>
-          <p>영문, 소문자, 숫자 5 ~ 12자</p>
+          <button type="button" class="useridB" onclick="idCheck()">
+            확인
+          </button>
+          <p>영문 소문자, 숫자를 포함한 5 ~ 12자리</p>
           <input
-            type="text"
-            name="userpw"
+            type="password"
+            name="userpw1"
             class="userpw"
+            id="userid1"
             placeholder="  패스워드"
           />
-          <p>영문, 소/대문자, !@#$ 포함 숫자 5 ~ 15자</p>
+          <p>영문 소/대문자, 숫자, !@#$ 포함 5 ~ 15자</p>
           <input
-            type="text"
-            name="userpw"
+            type="password"
+            name="userpw2"
             class="userpw"
+            id="userpw2"
             placeholder="  패스워드 확인"
           />
           <br />
-          <input type="text" name="name" class="name" placeholder="  이름" />
+          <input
+            type="text"
+            name="username"
+            class="username"
+            placeholder="  이름"
+          />
           <br />
           <input
             type="date"
-            name="birth"
+            name="userbirth"
             class="birth"
             value="1993-03-03"
             min="1970-01-01"
             max="2018-12-31"
           />
           <br />
-          <button type="button" class="registerB">가입</button>
+          <button type="button" class="registerB" onclick="registerClick()">
+            가입
+          </button>
         </form>
       </div>
     </div>
+
+    <script>
+      function idCheck() {
+        const form = document.forms["register"];
+        const inputId = form.userid.value;
+        console.log(inputId);
+        const reg = /^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{5,12}$/; //정규식
+        const isChecked = reg.test(inputId);
+        console.log("isFalse", isChecked);
+        console.log("form.userid!", form.userid.value); //" "
+
+        if (form.userid.value.trim() === "") {
+          alert("아이디를 입력해주세요");
+          return false;
+        }
+
+        if (!isChecked) {
+          alert("아이디는 영문, 소문자, 숫자 5 ~ 12자");
+          return false;
+        }
+
+        // 중복 아이디 체크
+        $.ajax({
+          type: "post",
+          url: "/registeIdCheck",
+          data: {
+            userid: form.userid.value,
+          },
+          success: function (res) {
+            console.log("suc_res", res);
+            console.log(res.userid);
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }
+
+      //회원가입
+      function registerClick() {
+        const form = document.forms["register"];
+        console.log("form", form);
+        console.log("form.userid", form.userid.value);
+        console.log("form.userpw", form.userpw1.value);
+        console.log("form.userbirth", form.userbirth.value);
+        console.log("form.username", form.username.value);
+
+        //비밀번호 유효성
+        const p1 = form.userpw1.value;
+        const p2 = form.userpw2.value;
+        const reg =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$])[A-Za-z\d!@#$]{5,15}$/;
+        const isChecked = reg.test(p1);
+
+        if (!isChecked) {
+          alert("비밀번호는 영문 소/대문자, 숫자, !@#$ 포함 5 ~ 15자");
+          return false;
+        }
+        if (p1 != p2) {
+          alert("불일치");
+          return false;
+        }
+      }
+    </script>
   </body>
 </html>
