@@ -14,7 +14,8 @@
     <!-- include("./includes/header") %> -->
     <header>
       <a href="#" onClick="history.back()">
-        <i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000"></i>
+        <img src="/static/img/Arrow - Left.png" alt="arrow" />
+        <!-- <i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000"></i> -->
       </a>
 
       <p class="logo">회원가입</p>
@@ -118,6 +119,12 @@
         console.log("form.userbirth", form.userbirth.value);
         console.log("form.username", form.username.value);
 
+        //아이디 검사
+        if (form.userid.value.trim() === "") {
+          alert("아이디를 입력해주세요");
+          return false;
+        }
+
         //비밀번호 유효성
         const p1 = form.userpw1.value;
         const p2 = form.userpw2.value;
@@ -129,6 +136,8 @@
           alert("비밀번호는 영문 소/대문자, 숫자, !@#$ 포함 5 ~ 15자");
           return false;
         }
+
+        //비범검사
         if (p1 != p2) {
           alert("불일치");
           return false;
