@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/test.css" />
+    <style>
+      .container {
+        width: 100%;
+        height: 200px;
+        border: 1px solid lightgreen;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      form {
+        margin: 0 auto;
+      }
+
+      form > input {
+        width: 310px;
+        height: 30px;
+      }
+      form > label {
+        font-size: 10px;
+        color: lightslategray;
+      }
+      button {
+        width: 320px;
+        height: 30px;
+        background-color: lightgreen;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a href="/" class="logo">HOMe</a>
+      <a href="/login" class="loginA">LOGIN</a>
+    </div>
+
+    <div class="container">
+      <form class="login" name="login">
+        <input type="text" name="userid" placeholder="아이디" />
+        <br />
+        <input type="password" name="userpw" placeholder="비밀번호" />
+        <br />
+        <label for="checkbox">
+          <input type="checkbox" name="autologin" />
+          자동 로그인
+        </label>
+
+        <br />
+        <button type="button">로그인</button>
+        <br />
+        <button type="button">회원가입</button>
+      </form>
+    </div>
+  </body>
+</html>

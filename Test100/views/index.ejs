@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test100</title>
+    <!-- fontasome -->
+    <script
+      src="https://kit.fontawesome.com/838721c5e2.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- static css -->
+    <link rel="stylesheet" href="/static/test.css" />
+    <style>
+      .container {
+        width: 100%;
+        display: flex;
+      }
+      .search {
+        margin: 0 auto;
+      }
+      .search > input {
+        width: 320px;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid lightgreen;
+      }
+      button {
+        width: 70px;
+        height: 30px;
+        background-color: lightgreen;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .search2 {
+        display: none;
+      }
+
+      @media screen and (min-width: 768px) {
+        .header {
+          background-color: rebeccapurple;
+        }
+        .search {
+          display: none;
+        }
+
+        .search2 {
+          display: block;
+          margin: 0 auto;
+          width: 400px;
+        }
+        /* 아이콘 넣기 위한 div */
+        .search2icon {
+          width: 400px;
+          height: 30px;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1;
+        }
+
+        .search2icon > input {
+          width: 300px;
+          height: 30px;
+          border-radius: 5px;
+          border: 1px solid rebeccapurple;
+          padding: 0 0 0 10px;
+          margin-right: 10px;
+        }
+        .icon {
+          position: absolute;
+          right: 100px;
+        }
+
+        .search2icon > button {
+          width: 70px;
+          height: 30px;
+          background-color: rebeccapurple;
+          color: white;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        .textarea2 {
+          width: 390px;
+          height: 200px;
+          border: 1px solid rebeccapurple;
+          margin-top: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <a href="/" class="logo">HOMe</a>
+        <a href="/login" class="loginA">LOGIN</a>
+      </div>
+    </header>
+    <div class="container">
+      <form class="search" name="search">
+        <input type="text" name="search" placeholder="Search..." />
+        <button type="button">search</button>
+      </form>
+
+      <form class="search2">
+        <div class="search2icon">
+          <input
+            type="text"
+            name="search2"
+            id="search2"
+            placeholder="search2..."
+          />
+          <i
+            class="fa-solid fa-magnifying-glass icon"
+            style="color: #7436bf"
+          ></i>
+
+          <button type="button">search2</button>
+        </div>
+        <textarea class="textarea2"></textarea>
+      </form>
+    </div>
+  </body>
+</html>

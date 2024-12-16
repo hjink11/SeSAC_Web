@@ -15,7 +15,7 @@ exports.register = (req, res) => {
 //POST 회원등록
 exports.postRegister = async (req, res) => {
   console.log("req.body", req.body);
-  //req.body { userid: '', password: '', name: '' }
+  //req.body { userid: '', pw: '', name: '' }
   try {
     const newUser1 = await user1Model.User1.create({
       userid: req.body.userid,
@@ -32,4 +32,11 @@ exports.postRegister = async (req, res) => {
 //GET /login
 exports.login = (req, res) => {
   res.render("login");
+};
+
+//POST /login
+exports.postLogin = (req, res) => {
+  console.log("req.body.userid", req.body.userid);
+  //req.body.userid a
+  res.send("로그인~");
 };

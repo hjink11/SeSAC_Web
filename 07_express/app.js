@@ -53,5 +53,5 @@ app.use(function (req, res) {
 });
 
 app.listen(PORT, function () {
-  console.log(`http://localhost${PORT}`);
+  console.log(`http://localhost:${PORT}`);
 });

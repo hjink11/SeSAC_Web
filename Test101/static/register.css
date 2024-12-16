@@ -1,0 +1,48 @@
+.regidiv {
+  width: 100vw;
+  height: 400px;
+  position: relative;
+  color: lightslategray;
+  font-size: 10px;
+  font-family: "Noto Sans KR", serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userid {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.useridB {
+  width: 50px;
+  height: 40px;
+  background-color: rgb(255, 133, 117);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+form > input {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-top: 10px;
+}
+
+.registerB {
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: rgb(255, 133, 117);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
