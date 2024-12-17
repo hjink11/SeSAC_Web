@@ -14,6 +14,12 @@ router.post("/login", controller.postLogin);
 router.get("/register", controller.getRegister);
 
 //post /registeIdCheck
-router.post("/registeIdCheck", controller.getIdCheck);
+router.post("/registerIdCheck", controller.postIdCheck);
+
+//post /user/register
+router.post("/register", controller.postRegister);
+
+// get /mainani
+router.get("/ani", controller.getAni);
 
 module.exports = router;

@@ -32,8 +32,29 @@ exports.getRegister = (req, res) => {
 };
 
 //post /registeIdCheck
-exports.getIdCheck = (req, res) => {
-  console.log("Cmain_req.body.userid", req.body.userid);
-  const { userid } = req.body;
-  res.send({ result: true, userid: userid });
+exports.postIdCheck = (req, res) => {
+  console.log("Cmain_req.body.userId", req.body.userId);
+  const { userId } = req.body;
+  res.send({ result: true, success: true, userId: userId });
+};
+
+//post /user/register
+exports.postRegister = (req, res) => {
+  console.log("Cmain_Birth", req.body.userBirth);
+  const { userId, userPw, userName, userBirth } = req.body;
+  console.log("Cmain:", userId, userPw);
+  //  success: true, 로 해야지 로그인 성공함    실패를 보려면 지움
+  res.send({
+    success: true,
+    result: true,
+    userId: userId,
+    userPw: userPw,
+    userName: userName,
+    userBirth: userBirth,
+  });
+};
+
+//get /mainani
+exports.getAni = (req, res) => {
+  res.render("mainani");
 };

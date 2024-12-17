@@ -4,38 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입</title>
-    <!-- cdn,font,jquery   -->
-    <!-- 따로 추가하기!!!!!!!!!!!! -->
+    <!-- cdn,font,jquery-->
     <%- include("./includes/head") %>
-    <!--   css -->
+    <link rel="stylesheet" href="/static/css/header.css" />
     <link rel="stylesheet" href="/static/css/register.css" />
   </head>
   <body>
+    <!-- git용으로 수정하기 전 -->
+
+    <!-- 헤더 -->
+    <!-- include("./includes/header") %> -->
     <header>
-      <a href="#" onClick="history.back()" class="mobile">
+      <a href="#" onClick="history.back()">
         <img src="/static/img/Arrow - Left.png" alt="arrow" />
+        <!-- <i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000"></i> -->
       </a>
-      <p class="logo mobile">회원가입</p>
-      <!-- 웹 -->
-      <a href="/" class="web logoA">
-        <img src="/static/img/logo2.png" alt="logo" class="logoImg" />
-        <span>오늘은 뭐 먹지?</span>
-      </a>
-      <!-- / 수정!!!!!!!!!!!!!1 -->
-      <div class="menu web">
-        <!-- 로그인시  변경 herf 수정!!!!!! -->
-        <% if(!true){ %>
-        <a href="/users">내정보</a>
-        <a href="/users/logout">로그아웃</a>
-        <%}else{%>
-        <a href="/users/login">로그인</a>
-        <a href="/users/register">회원가입</a>
-        <%} %>
-      </div>
+
+      <p class="logo">회원가입</p>
     </header>
 
-    <main>
-      <div class="regiDiv">
+    <div class="con">
+      <div class="regidiv">
         <form
           name="register"
           class="register"
@@ -43,20 +32,20 @@
         >
           <input
             type="text"
-            name="userId"
-            class="userId"
+            name="userid"
+            class="userid"
             placeholder=" 아이디"
           />
-          <button type="button" class="userIdB" onclick="idCheck()">
+          <button type="button" class="useridB" onclick="idCheck()">
             확인
           </button>
           <p class="idP">영문 소문자, 숫자를 포함한 5 ~ 12자리</p>
           <div class="pwBox">
             <input
               type="password"
-              name="userPw1"
-              class="userPw"
-              id="userPw1"
+              name="userpw1"
+              class="userpw"
+              id="userpw1"
               placeholder="  패스워드"
             />
 
@@ -70,9 +59,9 @@
           <div class="pwBox">
             <input
               type="password"
-              name="userPw2"
-              class="userPw"
-              id="userPw2"
+              name="userpw2"
+              class="userpw"
+              id="userpw2"
               placeholder="  패스워드 확인"
             />
 
@@ -83,15 +72,15 @@
 
           <input
             type="text"
-            name="userName"
-            class="userName"
+            name="username"
+            class="username"
             placeholder="  이름"
           />
           <br />
           <input
             type="date"
-            name="userBirth"
-            class="Birth"
+            name="userbirth"
+            class="birth"
             value="1993-03-03"
             min="1970-01-01"
             max="2018-12-31"
@@ -102,10 +91,7 @@
           </button>
         </form>
       </div>
-    </main>
-    <footer class="web">
-      <p>Copyright 2024. Team 2TheCode All rights reserved.</p>
-    </footer>
+    </div>
 
     <script>
       // 아이디 중복 확인 결과
@@ -114,7 +100,7 @@
       function idCheck() {
         const form = document.forms["register"];
         //const idInput = document.querySelector(".userid"); //아이디 고정 필요 x
-        const inputId = form.userId.value.trim();
+        const inputId = form.userid.value.trim();
         const idP = document.querySelector(".idP");
 
         //아이디 유효성 검사
@@ -123,7 +109,7 @@
 
         //확인용 삭제
         console.log("isFalse", isChecked); // 유효성 검사
-        console.log("form.userid!", form.userId.value); //" "
+        console.log("form.userid!", form.userid.value); //" "
 
         if (inputId === "") {
           idP.innerText = "아이디를 입력해주세요";
@@ -144,12 +130,12 @@
         // 중복 아이디 체크
         $.ajax({
           type: "post",
-          url: "/registerIdCheck", //여기 수정!!!!!!!
-          data: { userId: inputId },
+          url: "/registerIdCheck", //여기 확인!!!!!!!
+          data: { userid: inputId },
           success: function (res) {
             // 확인 후 삭제
             console.log("suc_res", res); //응답 받았는지 {result:true, userid:} 이건 내가 정한값
-            console.log(res.userId);
+            console.log(res.userid);
 
             if (res.success) {
               idP.innerText = "사용 가능한 아이디입니다.";
@@ -179,18 +165,18 @@
       function registerClick() {
         //기본 폼 제출 방지 하는 법?
         const form = document.forms["register"];
-        const userId = form.userId.value.trim();
-        const userPw1 = form.userPw1.value;
-        const userPw2 = form.userPw2.value;
-        const userName = form.userName.value.trim();
-        const userBirth = form.userBirth.value;
+        const userid = form.userid.value.trim();
+        const userpw1 = form.userpw1.value;
+        const userpw2 = form.userpw2.value;
+        const username = form.username.value.trim();
+        const userbirth = form.userbirth.value;
 
         //확인 후 삭제
         console.log("form", form);
-        console.log("form.userId", form.userId.value); // userId로만 써도됨 위에있으니
-        console.log("form.userPw", form.userPw1.value);
-        console.log("form.userBirth", form.userBirth.value);
-        console.log("form.userName", form.userName.value);
+        console.log("form.userid", form.userid.value);
+        console.log("form.userpw", form.userpw1.value);
+        console.log("form.userbirth", form.userbirth.value);
+        console.log("form.username", form.username.value);
 
         //아이디 중복 확인
         if (!isIdCheck) {
@@ -200,11 +186,11 @@
 
         // 모든 항목 검사
         if (
-          userId === "" ||
-          userPw1 === "" ||
-          userPw2 === "" ||
-          userName === "" ||
-          userBirth === ""
+          userid === "" ||
+          userpw1 === "" ||
+          userpw2 === "" ||
+          username === "" ||
+          userbirth === ""
         ) {
           alert("모든 항목을 입력해주세요");
           return false;
@@ -214,7 +200,7 @@
         //이 검사 맨 위에서 전역으로 해보기
         const regPw =
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$])[A-Za-z\d!@#$]{5,15}$/;
-        const isCheckedPw = regPw.test(userPw1);
+        const isCheckedPw = regPw.test(userpw1);
 
         if (!isCheckedPw) {
           alert(
@@ -224,7 +210,7 @@
         }
 
         //비밀번호 확인
-        if (userPw1 !== userPw2) {
+        if (userpw1 !== userpw2) {
           alert("비밀번호가 일치하지 않습니다.");
           return false;
         }
@@ -236,19 +222,19 @@
           type: "post",
           url: "/register", //수정 /user/register 로
           data: {
-            userId: userId,
-            userPw: userPw1,
-            userName: userName,
-            userBirth: userBirth,
+            userid: userid,
+            userpw: userpw1,
+            username: username,
+            userbirth: userbirth,
           },
           success: function (res) {
-            console.log("밖", res.userBirth); // 나옴
+            console.log("밖", res.userbirth); // 나옴
             if (res.success) {
-              console.log(res.userBirth); // 나옴 "" 없이
-              //토큰, 스토리지
+              console.log(res.userbirth); // 나옴 "" 없이
+              //토큰, 스토리지  어자피 로그인해야 하니까 안해도?
 
               // 성공 시 로그인 페이지로 이동  /user/login
-              //document.location.href = "/login";
+              document.location.href = "/login";
             } else {
               alert("회원가입 실패했습니다.");
               //form.reset()? 할지?

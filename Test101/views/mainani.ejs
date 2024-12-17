@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인 애니매이션</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .back {
+        width: 100vw;
+        height: 100vh;
+        background-color: #ff8675;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* 여기서 부터 */
+        animation: change 0.8s ease forwards;
+      }
+
+      .backA {
+        animation: ani2 0.9s ease-out alternate;
+      }
+
+      .container {
+        width: 500px;
+        height: 500px;
+        text-align: center;
+        align-content: center;
+        cursor: pointer;
+        position: relative;
+      }
+
+      img {
+        width: 72px;
+        height: 99px;
+        margin-bottom: 13px;
+        position: relative;
+      }
+      img:hover {
+        animation: ani 0.5s ease-out infinite alternate;
+      }
+      .p1 {
+        font-size: 48px;
+        color: white;
+        font-weight: 700;
+        margin-bottom: 13px;
+      }
+      .p2 {
+        font-size: 20px;
+        color: white;
+        margin-bottom: 13px;
+      }
+      @keyframes change {
+        from {
+          transform: translateY(-100%);
+          visibility: visible;
+        }
+        to {
+          transform: translateY(0%);
+        }
+      }
+      @keyframes ani {
+        0% {
+          bottom: 0px;
+        }
+        50% {
+          bottom: 15px;
+        }
+        100% {
+          bottom: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="back">
+      <div class="container" onclick="location.href='/'">
+        <img src="/static/img/logo1.png" alt="logo" />
+        <p class="p1">오늘 뭐 먹지?</p>
+        <p class="p2">매번 드는 고민! 해결</p>
+      </div>
+    </div>
+  </body>
+</html>
