@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>메인 애니매이션</title>
+    <%- include("./includes/head") %>
     <style>
       * {
         margin: 0;
         padding: 0;
+        font-family: "Noto Sans KR", serif;
       }
       .back {
         width: 100vw;
@@ -19,7 +21,6 @@
         align-items: center;
 
         /* 여기서 부터 */
-        animation: change 0.8s ease forwards;
       }
 
       .backA {
@@ -33,6 +34,7 @@
         align-content: center;
         cursor: pointer;
         position: relative;
+        animation: change 0.8s ease forwards;
       }
 
       img {
@@ -40,9 +42,10 @@
         height: 99px;
         margin-bottom: 13px;
         position: relative;
+        animation: ani 0.5s ease-out infinite alternate;
       }
       img:hover {
-        animation: ani 0.5s ease-out infinite alternate;
+        /* animation: ani 0.5s ease-out infinite alternate; */
       }
       .p1 {
         font-size: 48px;
