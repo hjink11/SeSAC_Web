@@ -11,37 +11,21 @@
         padding: 0;
         font-family: "Noto Sans KR", serif;
       }
-
       .back {
         width: 100vw;
         height: 100vh;
         background-color: #ff8675;
-        /* position: relative; */
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-       z-index: 100;
-      float: left;
-      position: absolute;
-      
+
+        /* 여기서 부터 */
       }
 
-      .M{
-        /* z-index: 1; */
-
+      .backA {
+        animation: ani2 0.9s ease-out alternate;
       }
-      .F{
-        /* z-index: 1; */
-      }
-
-      .Ani{
-        animation: change 0.5s linear  ;
-        /* display: none; */
-      }
-      .none{
-        display: none;
-      }
-
 
       .container {
         width: 500px;
@@ -50,6 +34,7 @@
         align-content: center;
         cursor: pointer;
         position: relative;
+        animation: change 0.8s ease forwards;
       }
 
       img {
@@ -57,6 +42,9 @@
         height: 99px;
         margin-bottom: 13px;
         position: relative;
+        animation: ani 0.5s ease-out infinite alternate;
+      }
+      img:hover {
         /* animation: ani 0.5s ease-out infinite alternate; */
       }
       .p1 {
@@ -71,22 +59,12 @@
         margin-bottom: 13px;
       }
       @keyframes change {
-         
-        0%{
-          transform: translateX(0%);
+        from {
+          transform: translateY(-100%);
+          visibility: visible;
         }
-        25%{
-          transform: translateX(-25%);
-        }
-        50%{
-          transform: translateX(-50%);
-        }
-        75%{
-          transform: translateX(-75%);
-        }
-        100%{
-          transform: translateX(-100%);
-
+        to {
+          transform: translateY(0%);
         }
       }
       @keyframes ani {
@@ -103,35 +81,12 @@
     </style>
   </head>
   <body>
-
     <div class="back">
-      <!-- onclick="location.href='/'" -->
-      <div class="container" onclick="con()">
+      <div class="container" onclick="location.href='/'">
         <img src="/static/img/logo1.png" alt="logo" />
         <p class="p1">오늘 뭐 먹지?</p>
         <p class="p2">매번 드는 고민! 해결</p>
       </div>
     </div>
-    </div>
-    
-    <div class="M">
-      <h1>main</h1>
-    </div>
-    <div class="F">
-      <h1>footer</h1>
-    </div>
-
-   
-    
   </body>
-  <script>
-    function con(){
-      const back = document.querySelector(".back")
-
-      back.classList.add("Ani")
-      back.checkList.add("none")
-
-    }
-
-  </script>
 </html>

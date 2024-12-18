@@ -58,3 +58,8 @@ exports.postRegister = (req, res) => {
 exports.getAni = (req, res) => {
   res.render("mainani");
 };
+
+// get users
+exports.getUsers = (req, res) => {
+  res.render("users");
+};

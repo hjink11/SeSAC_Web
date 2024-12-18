@@ -22,4 +22,7 @@ router.post("/register", controller.postRegister);
 // get /mainani
 router.get("/ani", controller.getAni);
 
+//get /users
+router.get("/users", controller.getUsers);
+
 module.exports = router;
