@@ -15,30 +15,37 @@
         width: 100vw;
         height: 100vh;
         background-color: #ff8675;
-        position: absolute;
+        position: relative;
         display: flex;
+        justify-content: center;
         align-items: center;
+
         /* 여기서 부터 */
-        transition-duration: 1.3s;
       }
-      .ani {
-        transform: translateX(-100vw);
-        transition-timing-function: linear;
+
+      .backA {
+        animation: ani2 0.9s ease-out alternate;
       }
 
       .container {
-        width: 300px;
-        height: 280px;
-        border: 1px solid black;
+        width: 500px;
+        height: 500px;
         text-align: center;
-        margin: 0 auto;
+        align-content: center;
         cursor: pointer;
         position: relative;
+        animation: change 0.8s ease forwards;
       }
+
       img {
         width: 72px;
         height: 99px;
         margin-bottom: 13px;
+        position: relative;
+        animation: ani 0.5s ease-out infinite alternate;
+      }
+      img:hover {
+        /* animation: ani 0.5s ease-out infinite alternate; */
       }
       .p1 {
         font-size: 48px;
@@ -51,34 +58,35 @@
         color: white;
         margin-bottom: 13px;
       }
+      @keyframes change {
+        from {
+          transform: translateY(-100%);
+          visibility: visible;
+        }
+        to {
+          transform: translateY(0%);
+        }
+      }
+      @keyframes ani {
+        0% {
+          bottom: 0px;
+        }
+        50% {
+          bottom: 15px;
+        }
+        100% {
+          bottom: 30px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="back">
-      <div class="container" onclick="con()">
+      <div class="container" onclick="location.href='/'">
         <img src="/static/img/logo1.png" alt="logo" />
         <p class="p1">오늘 뭐 먹지?</p>
         <p class="p2">매번 드는 고민! 해결</p>
       </div>
     </div>
-    <header>
-      <div>
-        <h1>헤더</h1>
-      </div>
-    </header>
-
-    <div class="M">
-      <h1>main</h1>
-    </div>
-    <div class="F">
-      <h1>footer</h1>
-    </div>
   </body>
-  <script>
-    function con() {
-      const back = document.querySelector(".back");
-
-      back.classList.add("ani");
-    }
-  </script>
 </html>

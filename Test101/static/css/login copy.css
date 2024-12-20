@@ -1,5 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", serif;
+}
+/* 헤더 */
+header {
+  width: 100vw;
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+header > .logo {
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Noto Sans KR", serif;
+}
+header > a {
+  position: relative;
+  left: 20px;
+}
+
 /* form */
-.logindiv {
+.loginDiv {
   width: 100vw;
   height: 300px;
   position: relative;
@@ -10,16 +35,15 @@
 form > input {
   width: 353px;
   height: 50px;
-  /* border-radius: 5px; */
   border: 1px solid lightgray;
   font-size: 16px;
 }
 /* radius */
-.userid {
+.userId {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.userpw {
+.userPw {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -51,4 +75,78 @@ form > button {
 label {
   font-size: 16px;
   color: rgb(152, 152, 152);
+}
+
+/* 모바일 none */
+.web {
+  display: none;
+}
+
+/* 웹 */
+
+@media ((min-width: 1024px)) {
+  .mobile {
+    display: none;
+  }
+  .web {
+    display: block;
+  }
+
+  header {
+    width: 100vw;
+    height: 80px;
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+    margin: 0;
+  }
+
+  .logoA {
+    position: absolute;
+    left: 165px;
+    text-decoration-line: none;
+  }
+  .logoA > span {
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    position: relative;
+    bottom: 10px;
+  }
+
+  .logoImg {
+    width: 27px;
+    height: 40px;
+  }
+
+  .menu {
+    position: absolute;
+    right: 165px;
+  }
+  .menu a {
+    color: black;
+    text-decoration-line: none;
+  }
+
+  .loginDiv {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    width: 100vw;
+    height: 80px;
+    text-align: center;
+    border-top: 1px solid #eaeaea;
+    position: relative;
+    display: flex;
+    align-content: center;
+  }
+  footer > p {
+    font-size: 16px;
+    color: #747474;
+  }
 }

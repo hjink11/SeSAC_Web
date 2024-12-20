@@ -11,20 +11,23 @@
         padding: 0;
         font-family: "Noto Sans KR", serif;
       }
+
       .back {
         width: 100vw;
         height: 100vh;
+        margin: 0;
         background-color: #ff8675;
-        position: relative;
+        /* position: relative; */
         display: flex;
         justify-content: center;
         align-items: center;
-
-        /* 여기서 부터 */
+        z-index: 100;
+        float: left;
+        position: absolute;
       }
 
-      .backA {
-        animation: ani2 0.9s ease-out alternate;
+      .Ani {
+        /* animation: change 0.8s linear 1; */
       }
 
       .container {
@@ -34,7 +37,6 @@
         align-content: center;
         cursor: pointer;
         position: relative;
-        animation: change 0.8s ease forwards;
       }
 
       img {
@@ -42,10 +44,7 @@
         height: 99px;
         margin-bottom: 13px;
         position: relative;
-        animation: ani 0.5s ease-out infinite alternate;
-      }
-      img:hover {
-        /* animation: ani 0.5s ease-out infinite alternate; */
+        /* animation: ani 0.5s ease-out infinite alternate;*/
       }
       .p1 {
         font-size: 48px;
@@ -59,15 +58,28 @@
         margin-bottom: 13px;
       }
       @keyframes change {
-        from {
-          transform: translateY(-100%);
-          visibility: visible;
+        /* 슬라이드 */
+        0% {
+          left: 0vw;
         }
-        to {
-          transform: translateY(0%);
+        20% {
+          left: -20vw;
+        }
+        40% {
+          left: -40vw;
+        }
+        60% {
+          left: -60vw;
+        }
+        80% {
+          left: -80vw;
+        }
+        100% {
+          left: -100vw;
         }
       }
       @keyframes ani {
+        /* 아래 위 */
         0% {
           bottom: 0px;
         }
@@ -82,11 +94,26 @@
   </head>
   <body>
     <div class="back">
-      <div class="container" onclick="location.href='/'">
+      <!-- onclick="location.href='/'" -->
+      <div class="container" onclick="con()">
         <img src="/static/img/logo1.png" alt="logo" />
         <p class="p1">오늘 뭐 먹지?</p>
         <p class="p2">매번 드는 고민! 해결</p>
       </div>
     </div>
+
+    <div class="M">
+      <h1>main</h1>
+    </div>
+    <div class="F">
+      <h1>footer</h1>
+    </div>
   </body>
+  <script>
+    function con() {
+      const back = document.querySelector(".back");
+
+      back.classList.add("Ani");
+    }
+  </script>
 </html>

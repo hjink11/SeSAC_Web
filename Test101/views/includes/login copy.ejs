@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <!-- cdn,font,jquery-->
+    <%- include("./includes/head") %>
+    <link rel="stylesheet" href="/static/css/header.css" />
+    <link rel="stylesheet" href="/static/css/login.css" />
+  </head>
+  <body>
+    <!-- include("./includes/header") %> -->
+    <header>
+      <a href="#" onClick="history.back()">
+        <img src="/static/img/Arrow - Left.png" alt="arrow" />
+        <!-- <i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000"></i> -->
+      </a>
+
+      <p class="logo">로그인</p>
+    </header>
+    <!-- 시맨틱 태그라면 <main> > section 이나 article(세션 안으로 들어 갈 수도) > figure -->
+    <div class="con">
+      <div class="logindiv">
+        <form name="loginForm">
+          <input
+            type="text"
+            name="userid"
+            class="userid"
+            placeholder="  아이디"
+            required
+          />
+          <br />
+          <input
+            type="password"
+            name="userpw"
+            class="userpw"
+            placeholder="  비밀번호"
+            required
+          />
+          <br />
+          <label for="checkbox">
+            <input type="checkbox" name="autologin" checked />
+            자동 로그인
+          </label>
+          <br />
+          <button type="button" onclick="login()" class="loginB">로그인</button>
+          <br />
+          <button
+            type="button"
+            class="registerB"
+            onclick="location.href='/register'"
+          >
+            회원가입
+          </button>
+          <!-- 회원가입은 onclick 으로 이동하는지? -->
+        </form>
+      </div>
+      <div class="result"></div>
+    </div>
+
+    <script>
+      const resultBox = document.querySelector(".result");
+      function login() {
+        const form = document.forms["loginForm"];
+        console.log("form.userid", form.userid.value);
+        console.log("form.userpw", form.userpw.value);
+        // 유효성 검사
+        if (form.userid.value.length === 0 || form.userpw.value.length === 0) {
+          alert("아이디와 비밀번호를 입력해주세요");
+          return;
+        }
+
+        //Ajax
+
+        $.ajax({
+          type: "post",
+          url: "/login",
+          data: {
+            userid: form.userid.value,
+            userpw: form.userpw.value,
+          },
+          success: function (res) {
+            // success 위에는 백엔드로 보내는 값, 아래는 백엔드에서 받은 갑이다.(Cmain)
+            //인자로 data 로 받아도 결과 같음
+            console.log("SUC_res", res); // {result: true, userid: "", userpw: ""}
+            console.log(res.userid); //
+            resultBox.textContent = `${res.userid}로그인 성공`;
+            //document.location.href = "/";
+
+            //프로젝트에서 성공 결과, 토큰 확인
+            // if (res.success) {
+            //   console.log("Token :", res.token);
+            //   localStorage.setItem("authToken", res.token);
+            // } else {
+            //   alert("로그인 실패 :" + res.message);
+            // }
+          },
+          error: function (error) {
+            console.log(error);
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

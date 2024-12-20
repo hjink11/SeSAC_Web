@@ -22,6 +22,15 @@
     <title>로그인</title>
   </head>
   <body>
+    <!-- 메인화면 -->
+    <div class="back mobile">
+      <div class="container" onclick="con()">
+        <img src="/static/img/logo1.png" alt="logo" />
+        <p class="p1">오늘 뭐 먹지?</p>
+        <p class="p2">매번 드는 고민! 해결</p>
+      </div>
+    </div>
+
     <header>
       <a href="#" onClick="history.back()" class="mobile">
         <img src="/static/img/Arrow - Left.png" alt="arrow" />
@@ -118,6 +127,13 @@
             console.log(error);
           },
         });
+      }
+
+      //메인 transform
+      function con() {
+        const back = document.querySelector(".back");
+
+        back.classList.add("ani");
       }
     </script>
   </body>
