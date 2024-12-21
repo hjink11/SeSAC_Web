@@ -1,8 +1,31 @@
+<!-- 헤더 src 수정!!!!!! -->
 <header>
-  <!-- 이전페이지  -->
-  <a href="#" onClick="history.back()">
-    <i class="fa-solid fa-arrow-left fa-xl" style="color: #000000"></i>
-  </a>
-
-  <p class="logo"><%=title.title %></p>
+  <div class="inner">
+    <div class="logoBox">
+      <a class="logoTitle" href="/"
+        ><img src="/static/img/logo/b_logo.png" alt="로고" />
+        <span>오늘은 뭐 먹지?</span></a
+      >
+      <div class="gnb">
+        <!-- 로그인시  태그변경 -->
+        <% if(!true){ %>
+        <a href="/users/login">내정보</a>
+        <a href="/users/login">로그아웃</a>
+        <%}else{%>
+        <a href="/users/login">로그인</a>
+        <a href="/users/login">회원가입</a>
+        <%} %>
+      </div>
+    </div>
+    <div class="headMenu">
+      <div class="backMove">
+        <!-- <a href="#" onClick="history.back()">   이전 페이지로  -->
+        <!--  ^^^^^^^^^^^^^^^^^^^^^^^^ src 수정!!!!!!!!!!!!!^^^^^ -->
+        <a href="/"><img src="../../static/img/Arrow - Left.png" alt="" /></a>
+      </div>
+      <div class="title">
+        <h3>Title</h3>
+      </div>
+    </div>
+  </div>
 </header>

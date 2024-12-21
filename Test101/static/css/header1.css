@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", serif;
+}
+/* 헤더 */
+header {
+  /* % ? vw? */
+  width: 100vw;
+  height: 100px;
+  /* border-bottom: 1px solid rebeccapurple; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+header > .logo {
+  margin: 0 auto;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Noto Sans KR", serif;
+}
+header > a {
+  position: relative;
+  left: 20px;
+}

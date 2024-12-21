@@ -3,44 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인</title>
-    <!-- cdn,font,jquery-->
-    <%- include("./includes/head") %>
-    <link rel="stylesheet" href="/static/css/header.css" />
+    <!-- jquery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- googlrFont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- css -->
     <link rel="stylesheet" href="/static/css/login.css" />
+
+    <title>로그인</title>
   </head>
   <body>
-    <!-- include("./includes/header") %> -->
-    <header>
-      <a href="#" onClick="history.back()">
-        <img src="/static/img/Arrow - Left.png" alt="arrow" />
-        <!-- <i class="fa-solid fa-arrow-left fa-2xl" style="color: #000000"></i> -->
-      </a>
+    <!-- 메인화면 -->
+    <div class="back mobile">
+      <div class="container" onclick="con()">
+        <img src="/static/img/logo1.png" alt="logo" />
+        <p class="p1">오늘 뭐 먹지?</p>
+        <p class="p2">매번 드는 고민! 해결</p>
+      </div>
+    </div>
 
-      <p class="logo">로그인</p>
+    <header>
+      <a href="#" onClick="history.back()" class="mobile">
+        <img src="/static/img/Arrow - Left.png" alt="arrow" />
+      </a>
+      <p class="logo mobile">로그인</p>
+      <!-- 웹 -->
+      <a href="/" class="web logoA">
+        <img src="/static/img/logo2.png" alt="logo" class="logoImg" />
+        <span>오늘은 뭐 먹지?</span>
+      </a>
+      <!-- / 수정!!!!!!!!!!!!!1 -->
+      <div class="menu web">
+        <!-- 로그인시  변경 herf 수정!!!!!! -->
+        <% if(!true){ %>
+        <a href="/users">내정보</a>
+        <a href="/users/logout">로그아웃</a>
+        <%}else{%>
+        <a href="/users/login">로그인</a>
+        <a href="/users/register">회원가입</a>
+        <%} %>
+      </div>
     </header>
-    <!-- 시맨틱 태그라면 <main> > section 이나 article(세션 안으로 들어 갈 수도) > figure -->
+
     <div class="con">
-      <div class="logindiv">
+      <div class="loginDiv">
         <form name="loginForm">
           <input
             type="text"
-            name="userid"
-            class="userid"
+            name="userId"
+            class="userId"
             placeholder="  아이디"
             required
           />
           <br />
           <input
             type="password"
-            name="userpw"
-            class="userpw"
+            name="userPw"
+            class="userPw"
             placeholder="  비밀번호"
             required
           />
           <br />
           <label for="checkbox">
-            <input type="checkbox" name="autologin" checked />
+            <input type="checkbox" name="autoLogin" checked />
             자동 로그인
           </label>
           <br />
@@ -53,53 +87,53 @@
           >
             회원가입
           </button>
-          <!-- 회원가입은 onclick 으로 이동하는지? -->
         </form>
       </div>
-      <div class="result"></div>
     </div>
 
+    <footer class="web">
+      <p>Copyright 2024. Team 2TheCode All rights reserved.</p>
+    </footer>
+
     <script>
-      const resultBox = document.querySelector(".result");
       function login() {
         const form = document.forms["loginForm"];
-        console.log("form.userid", form.userid.value);
-        console.log("form.userpw", form.userpw.value);
+        console.log("form.userId", form.userId.value);
+        console.log("form.userPw", form.userPw.value);
         // 유효성 검사
-        if (form.userid.value.length === 0 || form.userpw.value.length === 0) {
+        if (form.userId.value.length === 0 || form.userPw.value.length === 0) {
           alert("아이디와 비밀번호를 입력해주세요");
           return;
         }
 
         //Ajax
-
         $.ajax({
           type: "post",
-          url: "/login",
+          url: "/users/login",
           data: {
-            userid: form.userid.value,
-            userpw: form.userpw.value,
+            userId: form.userId.value,
+            userPw: form.userPw.value,
+            autoLogin: form.autoLogin.checked,
           },
           success: function (res) {
-            // success 위에는 백엔드로 보내는 값, 아래는 백엔드에서 받은 갑이다.(Cmain)
-            //인자로 data 로 받아도 결과 같음
-            console.log("SUC_res", res); // {result: true, userid: "", userpw: ""}
-            console.log(res.userid); //
-            resultBox.textContent = `${res.userid}로그인 성공`;
-            //document.location.href = "/";
-
-            //프로젝트에서 성공 결과, 토큰 확인
-            // if (res.success) {
-            //   console.log("Token :", res.token);
-            //   localStorage.setItem("authToken", res.token);
-            // } else {
-            //   alert("로그인 실패 :" + res.message);
-            // }
+            if (res.success) {
+              console.log("Token :", res.token);
+              localStorage.setItem("authToken", res.token);
+            } else {
+              alert("로그인 실패 :" + res.message);
+            }
           },
           error: function (error) {
             console.log(error);
           },
         });
+      }
+
+      //메인 transform
+      function con() {
+        const back = document.querySelector(".back");
+
+        back.classList.add("ani");
       }
     </script>
   </body>
