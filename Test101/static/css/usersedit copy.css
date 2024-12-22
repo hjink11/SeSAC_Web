@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 메인 */
+/* 추가 */
+.regiDiv {
+  width: 100%;
+  /* height: 100vh; */
+  height: 100%;
+  /* position: relative; */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 110px;
+  box-sizing: border-box;
+}
+/* 추가! */
+form {
+  width: 400px;
+  height: 700px;
+  position: relative;
+  margin: 0 auto;
+  left: 20px;
+}
+
+form > p {
+  font-size: 14px;
+  color: rgba(160, 160, 160, 1);
+  margin-bottom: 10px;
+}
+
+input {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.userId {
+  width: 262px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-right: 10px;
+}
+
+.userId2 {
+  width: 353px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-right: 10px;
+  background-color: #cecece;
+}
+/*프로필 사진*/
+.profileSection {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  /* 추가 */
+  width: 353px;
+  margin-bottom: 10px;
+}
+
+.profileImg {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* 추가 */
+  border: 1px solid black;
+}
+.dynamic {
+  display: flex;
+  align-items: center;
+  /* 추가 */
+  margin-bottom: 10px;
+}
+.dynamic input {
+  width: 300px;
+}
+
+.userProfileB {
+  width: 100px;
+  height: 50px;
+  background-color: #ff8675;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  right: 50px;
+}
+
+.pwBox {
+  position: relative;
+  width: 353px;
+  height: 50ox;
+}
+.pwBox span {
+  position: absolute;
+  left: 310px;
+  top: 15px;
+}
+
+span > img {
+  width: 20px;
+  height: 20px;
+}
+
+.userPw {
+  width: 353px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+.userName {
+  width: 353px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+}
+
+.Birth {
+  width: 353px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  color: rgba(160, 160, 160, 1);
+}
+
+.registerB {
+  width: 353px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #ff8675;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* 모바일 none */
+.web {
+  display: none;
+}
+
+/* 웹 */
+
+/* test */
+.dynamic label {
+  width: 353px;
+  height: 50px;
+  display: flex;
+  color: white;
+  font-size: 16px;
+  background-color: #ff8675;
+  cursor: pointer;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100;
+}
+
+.dynamic input[type="file"] {
+  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  .mobile {
+    display: none;
+  }
+  .web {
+    display: block;
+  }
+
+  /* 추가 */
+  .regiDiv {
+    width: 100%;
+    height: 100%;
+    /* position: relative; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 200px;
+  }
+}

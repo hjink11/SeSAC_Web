@@ -63,3 +63,8 @@ exports.getAni = (req, res) => {
 exports.getUsers = (req, res) => {
   res.render("users");
 };
+
+//get uesrsedit
+exports.getEdit = (req, res) => {
+  res.render("usersedit");
+};

@@ -25,4 +25,7 @@ router.get("/ani", controller.getAni);
 //get /users
 router.get("/users", controller.getUsers);
 
+//get /usersedit
+router.get("/usersedit", controller.getEdit);
+
 module.exports = router;
