@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html test</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      input[type="checkbox"] ~ label {
+        font-size: 2em;
+      }
+      input[type="checkbox"]#apple:checked + label {
+        background-color: crimson;
+        color: wheat;
+      }
+
+      /* flex */
+      .container {
+        max-width: 1000px;
+        height: 300px;
+        margin: 0 auto;
+        background-color: #333;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+      }
+
+      .container > .items {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      .container > .items.item1 {
+        background-color: red;
+      }
+      .container > .items.item2 {
+        background-color: orange;
+      }
+      .container > .items.item3 {
+        background-color: yellow;
+      }
+      .container > .items.item4 {
+        background-color: green;
+      }
+      .container > .items.item5 {
+        background-color: blue;
+      }
+
+      .con {
+        width: 400px;
+        height: 150px;
+        background-color: black;
+        display: flex;
+      }
+      .con2 {
+        display: flex;
+      }
+      .div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+      }
+      .div1 {
+        background-color: crimson;
+      }
+      .div2 {
+        background-color: greenyellow;
+      }
+
+      .div1C {
+        background-color: greenyellow;
+        transform: translateX(20px);
+        transition-duration: 0.3s;
+        transition-timing-function: ease-in;
+      }
+      .div2C {
+        background-color: crimson;
+        transition-timing-function: ease-in;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>
+ pre - 쓰인 그대로 
+       보여주는 태그다
+    </pre>
+    <br />
+    <hr />
+    <h3>스타벅스</h3>
+    <ul>
+      <li>
+        <h3>아메리카노</h3>
+        <ol>
+          <li>R: 3000</li>
+          <li>L: 3500</li>
+        </ol>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <h3>카페라떼</h3>
+        <ol>
+          <li>R: 3000</li>
+          <li>L: 3500</li>
+        </ol>
+      </li>
+    </ul>
+    <hr />
+    <h3>음료 설명</h3>
+    <p>
+      아메리카노는 <span style="font-weight: 600">물</span>에 에스프레소 샷을 탄
+      음료
+    </p>
+    <p>카페라떼는 <b>우유</b>가 들어간 <i>음료</i></p>
+    <hr />
+    <br />
+    <h3>설문조사</h3>
+    <p>라디오</p>
+    <input type="radio" name="age" id="age1" />
+    <label for="age1">10대</label>
+    <input type="radio" name="age" id="age2" />
+    <label for="age2">20대</label>
+    <p>체크박스</p>
+    <input type="checkbox" checked name="tag" id="tag1" />
+    <label for="tag1">html</label>
+    <input type="checkbox" name="tag" id="tag2" />
+    <label for="tag2">css</label>
+    <p>메모장</p>
+    <textarea
+      name="memo"
+      id="memo"
+      placeholder="하고싶은 말"
+      cols="60"
+      rows="20"
+    ></textarea>
+    <input type="submit" value="제출" />
+    <p>select</p>
+    <select>
+      <option value="키위">키위</option>
+      <option value="사과">사과</option>
+      <optgroup>
+        <option value="키위">qo</option>
+        <option value="사과">ss</option>
+      </optgroup>
+    </select>
+
+    <h3>colspan / rowspan 실습</h3>
+    <table
+      border="1"
+      cellspacing="0"
+      cellpadding="10"
+      align="center"
+      width="300px"
+      height="300px"
+    >
+      <tr>
+        <td colspan="2">1</td>
+        <td rowspan="2">2</td>
+      </tr>
+      <tr>
+        <td rowspan="2">3</td>
+        <td>center</td>
+      </tr>
+      <tr>
+        <td colspan="2">4</td>
+      </tr>
+    </table>
+
+    <input type="checkbox" id="apple" />
+    <label for="apple">apple</label>
+    <input type="checkbox" id="banana" />
+    <label for="banana">banana</label>
+    <br />
+    <hr />
+    <h2>flex와 친해지기</h2>
+    <div class="container">
+      <div class="items item1">1</div>
+      <div class="items item2">2</div>
+      <div class="items item3">3</div>
+      <div class="items item4">4</div>
+      <div class="items item5">5</div>
+      <div class="items item1">1</div>
+      <div class="items item2">2</div>
+      <div class="items item3">3</div>
+      <div class="items item4">4</div>
+      <div class="items item5">5</div>
+    </div>
+
+    <h2>ani transform</h2>
+    <div class="con">
+      <div class="con2">
+        <div class="div div1"></div>
+        <div class="div div2"></div>
+        <div class="div div1"></div>
+        <div class="div div2"></div>
+        <div class="div div1"></div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <script>
+      const con = document.querySelector(".con");
+      con.addEventListener("mouseover", () => {
+        const div1 = document.querySelector(".div1");
+        const div2 = document.querySelector(".div2");
+
+        div1.classList.add("div1C");
+        div2.classList.add("div2C");
+      });
+    </script>
+  </body>
+</html>

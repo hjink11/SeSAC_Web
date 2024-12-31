@@ -36,6 +36,7 @@ form > p {
 input {
   font-size: 16px;
   margin-bottom: 10px;
+  text-indent: 10px;
 }
 
 .userId {
@@ -124,6 +125,14 @@ span > img {
   border-radius: 5px;
   border: 1px solid lightgray;
   color: rgba(160, 160, 160, 1);
+}
+
+input#Birth::-webkit-calendar-picker-indicator {
+  position: absolute;
+  background: url(../img/calendar-11059.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: 320px;
 }
 
 .registerB {

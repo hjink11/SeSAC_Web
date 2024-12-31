@@ -1,103 +1,103 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="./month.css">
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-   <script>
-     $('#formm').submit(function(e){
-           e.preventDefault()
-           const date = $('input[name="date"]').val()
-           
-           $('input')
-          
-     })
-     
-   </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./month.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $("#formm").submit(function (e) {
+        e.preventDefault();
+        const date = $('input[name="date"]').val();
+        console.log(date);
+
+        $("input");
+      });
+    </script>
     <title>달력</title>
-</head>
-<body>
-  <form id="formm">
-   <label for="date">날짜 : </label>
-   <input type="text" name="date">
-   <br>
-   <label for="content">내용 :</label>
-   <input type="text" name="content">
-   <button>작성</button>
-</form>
-   <div class="container">
-     <table>
-        <caption>2024년 11월</caption>
+  </head>
+  <body>
+    <form id="formm">
+      <label for="date">날짜 : </label>
+      <input type="text" name="date" />
+      <br />
+      <label for="content">내용 :</label>
+      <input type="text" name="content" />
+      <button>작성</button>
+    </form>
+    <div class="container">
+      <table>
+        <caption>
+          2024년 11월
+        </caption>
         <tr>
-            <th class="red">日</th>
-            <th>月</th>
-            <th>火</th>
-            <th>水</th>
-            <th>木</th>
-            <th>金</th>
-            <th class="blue">土</th>
+          <th class="red">日</th>
+          <th>月</th>
+          <th>火</th>
+          <th>水</th>
+          <th>木</th>
+          <th>金</th>
+          <th class="blue">土</th>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>1</td>
-            <td class="blue">2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>1</td>
+          <td class="blue">2</td>
         </tr>
         <tr>
-            <td class="red">3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td class="blue">9</td>
+          <td class="red">3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td class="blue">9</td>
         </tr>
         <tr>
-            <td class="red">10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
-            <td class="blue">16</td>
+          <td class="red">10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td class="blue">16</td>
         </tr>
         <tr>
-            <td class="red">17</td>
-            <td>18</td>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-            <td>22</td>
-            <td class="blue">23</td>
+          <td class="red">17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td class="blue">23</td>
         </tr>
         <tr>
-            <td class="red">24</td>
-            <td>25</td>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-            <td>29</td>
-            <td class="blue">30</td>
+          <td class="red">24</td>
+          <td>25</td>
+          <td>26</td>
+          <td>27</td>
+          <td>28</td>
+          <td>29</td>
+          <td class="blue">30</td>
         </tr>
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
-
-     </table>
-
-   </div>
-
-
-    
-</body>
+      </table>
+    </div>
+  </body>
 </html>

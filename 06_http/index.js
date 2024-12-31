@@ -1,6 +1,8 @@
 const http = require("http");
 const fs = require("fs");
 
+// node index.js로 서버 염
+
 const server = http.createServer(function (requset, response) {
   // console.log(requset) // 요청 객체 정보
 
@@ -15,7 +17,7 @@ const server = http.createServer(function (requset, response) {
   // html 읽기를 try문에서
   try {
     //실행코드
-    const data = fs.readFileSync("./inde.html");
+    const data = fs.readFileSync("./index.html");
     response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
     response.end(data);
   } catch (err) {
