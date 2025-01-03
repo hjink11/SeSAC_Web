@@ -66,8 +66,8 @@ app.get("/practice1", (req, res) => {
 });
 
 app.get("/axios-practice1", (req, res) => {
-  console.log(res.query);
-  res.send(res.query);
+  console.log(req.query);
+  res.send(req.query);
 });
 
 //실습2

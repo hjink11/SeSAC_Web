@@ -179,7 +179,7 @@ exports.patchVisitor = async (req, res) => {
     const [result] = await models.Visitor.update(
       {
         name: req.body.name,
-        commnet: req.body.comment,
+        comment: req.body.comment,
       },
       {
         where: {

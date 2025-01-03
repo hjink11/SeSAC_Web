@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt"); // npm install bcrypt 후 불러오기
 
-const saltRounds = 10;
+const saltRounds = 10; //암호화에 사용할 salt 수준 설정
 
 // 암호화 함수
 function hashPw(pw) {

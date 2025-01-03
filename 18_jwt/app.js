@@ -51,7 +51,7 @@ app.post("/login", (req, res) => {
 
 app.post("/token", (req, res) => {
   try {
-    console.log(req.headers.authorization); // Bearer sdfs.sdfs.ddfd 이렇게 나오니 Bearer 빼야함
+    console.log("헤더", req.headers.authorization); // Bearer sdfs.sdfs.ddfd 이렇게 나오니 Bearer 빼야함
     if (req.headers.authorization) {
       const token = req.headers.authorization.split(" ")[1];
       console.log(token);

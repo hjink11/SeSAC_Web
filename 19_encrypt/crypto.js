@@ -49,7 +49,7 @@ function checkPw(inputPw, savedSalt, savedHash) {
 }
 const realPw = "qwer1234";
 console.log("=====================");
-const data = saltAndHashPw(realPw);
+const data = saltAndHashPw(realPw); // return값으로 salt와 hash 반환
 console.log(data);
 const { salt: DBsalt, hash: DBhash } = data;
 console.log("===== 비밀번호 일치 여부 확인 =====");

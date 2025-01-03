@@ -274,7 +274,7 @@
           });
           console.log(res);
           //json() test( ) 는 시간이 걸리는 작업이다.
-          const result = await res.json();
+          const result = await res.json(); // .json은 응답 받은 데이터를 json 향태로
           console.log(result);
 
           const { name, gender } = result;

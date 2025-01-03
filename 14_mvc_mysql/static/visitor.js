@@ -86,7 +86,7 @@ function editVisitor(id) {
 
       const btnContainer = document.getElementById("btn-group");
       const html = `
-      <button type="button" onclick=editDo(${id})>수정하기</button>
+      <button type="button" onclick="editDo(${id})">수정하기</button>
       <button type="button" onclick="editCancel()">수정취소</button>
       `;
       btnContainer.innerHTML = html;
@@ -118,29 +118,28 @@ function editDo(id) {
       comment: form.comment.value,
       name: form.name.value,
     },
-  })
-    .then((res) => {
-      console.log(res.data); //"수정완료"
-      //const { id, name, comment } = res.data;
-      const tr = document.querySelector(`#tr_${id}`);
-      console.log(tr);
-      console.log(tr.children);
-      const children = tr.children; //[td,td,td,td,td]
-      children[1].textContent = form.name.value; //작성자
-      children[2].textContent = form.comment.value; //방명록 내용
+  }).then((res) => {
+    console.log(res.data); //"수정완료"
+    //const { id, name, comment } = res.data;
+    const tr = document.querySelector(`#tr_${id}`);
+    console.log(tr);
+    console.log(tr.children);
+    const children = tr.children; //[td,td,td,td,td]
+    children[1].textContent = form.name.value; //작성자
+    children[2].textContent = form.comment.value; //방명록 내용
 
-      editCancel(); // !
-    })
-    .catch((err) => console.error(err));
+    editCancel(); // !
+  });
+  //.catch((err) => console.error(err));
 }
 
 // 수정 취소
 function editCancel() {
   //1 form 안의 input 초기화
-  const form = document.form["visitor-form"];
+  const form = document.forms["visitor-form"];
   //form-reset()
   form.name.value = "";
-  form.commnet.value = "";
+  form.comment.value = "";
 
   //2 등록버튼 보이도록
   const btnContainer = document.getElementById("btn-group");

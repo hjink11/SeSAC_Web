@@ -138,10 +138,10 @@ function editDo(id) {
 // 수정 취소
 function editCancel() {
   //1 form 안의 input 초기화
-  const form = document.form["visitor-form"];
+  const form = document.forms["visitor-form"];
   //form-reset()
   form.name.value = "";
-  form.commnet.value = "";
+  form.comment.value = "";
 
   //2 등록버튼 보이도록
   const btnContainer = document.getElementById("btn-group");

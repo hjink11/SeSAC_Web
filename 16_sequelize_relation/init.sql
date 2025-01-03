@@ -1,6 +1,6 @@
 USE sesac;
 
-show TABLES
+show TABLES;
 
 DESC player;
 

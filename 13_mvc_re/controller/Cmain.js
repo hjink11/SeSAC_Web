@@ -20,7 +20,7 @@ exports.comment = (req, res) => {
   const commentId = req.params.id; //
   console.log("commentId:", commentId); // 1,2,3,4
 
-  console.log(comments[commentId - 1]); // 댓글 실제 정보
+  console.log(comments[commentId - 1]); // 댓글 실제 정보  []  배열이니 -1
   if (commentId < 1 || commentId > comments.length) {
     res.render("404");
   }

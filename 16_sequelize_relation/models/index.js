@@ -37,7 +37,7 @@ ProfileModel.belongsTo(ProfileModel, {
 
 //3-2) Team:Player 1:N
 TeamModel.hasMany(PlayerModel, {
-  foreignKey: "teamid", //내가 정해주는 이름(원래이름은 팀모델의 team_id라는 이름 )
+  foreignKey: "teamid", //내가 정해주는 이름(원래이름은 팀모델의 team_id라는 이름이지만 player에서틑 이이름으로 )
   sourceKey: "team_id", //실제로 참조할 이름
   //실제 team model의 컬럼명과 일치해야 함
   //medels/Team.js 의 Primaryey

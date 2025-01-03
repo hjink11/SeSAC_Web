@@ -9,8 +9,8 @@ function pickDrink() {
       console.log("고민 끝");
       product = "콜라";
       price = 1500;
-      //resolve("구매 완료!"); //then의 콜백의 인자로 전달  reject 결과 알기 위해서 주석 처리 원래 if문으로 처리
-      reject("구매실패");
+      resolve("구매 완료!"); //then의 콜백의 인자로 전달  reject 결과 알기 위해서 주석 처리 원래 if문으로 처리
+      //reject("구매실패");
     }, 3000);
   });
 }

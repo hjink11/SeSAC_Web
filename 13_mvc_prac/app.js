@@ -23,7 +23,7 @@ app.use("/", indexRouter);
 //404
 app.get("*", (req, res) => {
   //res.render("404");
-  res.render("<h2>Page Not Found</h2>");
+  res.send("<h2>Page Not Found</h2>");
 });
 
 app.listen(PORT, () => {

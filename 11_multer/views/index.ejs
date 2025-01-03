@@ -100,7 +100,7 @@
           },
         }).then((res) => {
           console.log(res.data);
-          destination: "uploads/";
+          // destination: "uploads/";
 
           // encoding: "7bit"
 
@@ -115,10 +115,10 @@
           // path: "uploads/pooh_7201732520726709.png"
 
           // size: 176304
-          console.log(res.data.path);
+          console.log(res.data.file.path);
           //console.log(res.data.originalname);
           const img = document.querySelector("img");
-          img.src = `/${res.data.path}`;
+          img.src = `/${res.data.file.path}`;
         });
       }
 
