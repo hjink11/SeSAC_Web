@@ -6,4 +6,8 @@ router.get("/", controller.main);
 
 router.get("/login", controller.getLogin);
 
+router.get("/twin", controller.getTwin);
+
+router.get("/refri", controller.getRefri);
+
 module.exports = router;

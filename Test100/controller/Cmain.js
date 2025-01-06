@@ -8,3 +8,13 @@ exports.main = (req, res) => {
 exports.getLogin = (req, res) => {
   res.render("login");
 };
+
+//Twin
+exports.getTwin = (req, res) => {
+  res.render("twin");
+};
+
+//Refri
+exports.getRefri = (req, res) => {
+  res.render("refri");
+};
