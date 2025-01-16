@@ -1,0 +1,28 @@
+$color1: pink;
+$color2: yellow;
+$color3: green;
+
+@mixin ball($bgColors, $index) {
+  @keyframes ball#{$index} {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    25% {
+      transform: translate(#{$index}px, 0);
+    }
+    50% {
+      transform: translate(#{$index}px, #{$index}px);
+    }
+    75% {
+      transform: translate(0px, #{$index}px);
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
+  animation: ball#{$index} 2s linear infinite;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $bgColors;
+}

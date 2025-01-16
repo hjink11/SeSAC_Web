@@ -1,0 +1,54 @@
+// 변수 선언  - 사용 dash
+$color-red: #d04848;
+$color-orange: #f3b95f;
+$color-yellow: #fde767;
+$color-green: #96ceb4;
+$color-blue: #6895d2;
+//실습4
+$colorH: rgb(135, 156, 251);
+$colorW: white;
+$colorG: rgb(163, 162, 162);
+$colorB: rgb(240, 245, 252);
+$colorB2: rgb(209, 226, 249);
+
+$boxShadow: 2px 2px 6px rgb(124, 119, 119);
+
+//매개변수 없을 때는 box(){} 아니라 box{}
+@mixin box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+@mixin circle($circleColor, $circleOpacity) {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: inline-block;
+  background-color: $circleColor;
+  opacity: $circleOpacity;
+}
+
+// 인자가 안들어 왔을 때 기본값을 :로
+@mixin box2(
+  $squareBgColor: $color-red,
+  $squareFontSize: 15px,
+  $squareColor: gray
+) {
+  @include box();
+  background-color: $squareBgColor;
+  line-height: 100px;
+  text-align: center;
+  font-size: $squareFontSize;
+  color: $squareColor;
+  @if $squareBgColor==$color-red {
+    border-radius: 50%;
+  } @else if $squareColor==black {
+    border-radius: 25%;
+  } @else {
+    border-radius: 0;
+  }
+}

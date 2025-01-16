@@ -1,0 +1,13 @@
+@import "_util2";
+
+.con {
+  > div {
+    $bgColors: ($color1, $color2, $color3);
+    @each $el in $bgColors {
+      $index: index($bgColors, $el);
+      &:nth-child(#{$index}) {
+        @include ball($el, 10 * $index);
+      }
+    }
+  }
+}

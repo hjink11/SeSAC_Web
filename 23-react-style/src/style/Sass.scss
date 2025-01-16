@@ -1,0 +1,178 @@
+@import "util";
+
+// 변수 선언  - 사용 dash   ( 위에 구분 파일로 바꿈)
+// $color-red: #d04848;
+// $color-orange: #f3b95f;
+// $color-yellow: #fde767;
+// $color-green: #96ceb4;
+// $color-blue: #6895d2;
+
+h4 {
+  color: gray;
+}
+
+// 중첩사용
+.div1 {
+  width: 200px;
+  height: 200px;
+  background-color: $color-red;
+  > .div2 {
+    width: 50%;
+    height: 50%;
+    background-color: $color-orange;
+    .div3 {
+      width: 50%;
+      height: 50%;
+      background-color: $color-yellow;
+    }
+  }
+  //  버튼은  div1의 자식이니까
+  .btn {
+    //btn 클래스 공통 속성
+    display: inline-block;
+    transition: 0.4s;
+    width: 33%;
+    height: 40px;
+    color: white;
+    line-height: 40px;
+    text-align: center;
+    font-size: 10px;
+    //나자신 btn이면서 아래 이름 있는
+    &.orangered {
+      background-color: orangered;
+    }
+
+    //btn--opacity
+    &--opacity {
+      background-color: $color-blue;
+      opacity: 0.5;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    //btn--blue
+    &--blue {
+      background-color: $color-blue;
+      // color-blue 과 color_blue 같음
+    }
+
+    &:hover {
+      cursor: pointer;
+      font-weight: 700;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  background-color: antiquewhite;
+  .box1 {
+    height: 50px;
+    background-color: $color-orange;
+    // &:nth-child(1) {
+    //   width: 100px;
+    // }
+    // &:nth-child(2) {
+    //   width: 120px;
+    // }
+    // &:nth-child(3) {
+    //   width: 140px;
+    // }
+
+    //@for $i from 1 to 3 도 가능하지만 1,2만 적용 된다
+    @for $i from 1 through 3 {
+      //#{}: 보간
+      // 문자사이에 변수 넣거나, 연산이 아닌 곳에 값을 넣을 때 사용
+      &:nth-child(#{$i}) {
+        // 연산
+        // width: (80px + 20px * $i);
+        // border: 1px solid $color-blue;
+
+        //mixin
+        @include box;
+      }
+    }
+  }
+  .circle {
+    //@include circle(red, 0.5);
+
+    // &:nth-child(4) {
+    //   @include circle(blue, 1);
+    // }
+    // &:nth-child(5) {
+    //   @include circle(dodgerblue, 0.8);
+    // }
+    // &:nth-child(6) {
+    //   @include circle(rgb(135, 149, 255), 0.6);
+    // }
+
+    //소괄호로 배열처럼 사용 위에 것을
+    $circleBgColors: (blue, dodgerblue, rgb(135, 149, 255));
+    @each $el in $circleBgColors {
+      // 위에 색 접근하기 위해 index()사용
+      //index() : SASS 에서 기본적으로 제공하는 함수
+      //index(list, value)
+      //특정 list에서 value의 index를 반환하는 함수
+      //index는 1번부터 시작
+      $index: index($circleBgColors, $el);
+      &:nth-child(#{$index + 3}) {
+        @include circle($el, 1.2 - 0.2 * $index);
+        //인자가 전해지지 않으면 에러가 생긴다 @include circle();
+      }
+    }
+  }
+  .box2 {
+    @include box2();
+
+    //같은 태그 중에서 div중에서 순서
+    &:nth-of-type(4) {
+      @include box2(yellow, 20px, navy);
+    }
+    &:nth-of-type(5) {
+      @include box2(orangered, 20px, black);
+    }
+  }
+}
+
+.img-test {
+  width: 100px;
+  height: 100px;
+  border: 1px solid $color-blue;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  // 백그라운드로 이미지 넣을 때는 import 안해도 됨
+  &.src-img {
+    background-image: url("../assets/peach.jpg");
+  }
+
+  &.public-img {
+    // / 루트= localhost:3000/
+    background-image: url("http://localhost:3000/img/peach.jpg");
+  }
+}
+
+.practice {
+  display: flex;
+  justify-content: space-evenly;
+  .imgg {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    // display: inline-block;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgb(123, 55, 142);
+    //margin: 5px;
+    box-shadow: $boxShadow;
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        background-image: url("../assets/practice#{$i}.png");
+      }
+    }
+  }
+}

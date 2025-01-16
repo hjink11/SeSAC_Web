@@ -26,7 +26,7 @@ function App() {
 
       <Container>
         {/* <FakePost /> */}
-        {/* <RealPost /> */}
+        <RealPost />
       </Container>
 
       {/* ref 실습 */}
