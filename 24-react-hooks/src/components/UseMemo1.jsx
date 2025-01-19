@@ -19,7 +19,7 @@ export default function UseMemo1() {
 
     // return 이후의 number * 2 값이 memoization 됨
     return number * 2;
-  }, [number]);
+  }, [number]); //number state가 변경 될때 = 버튼클릭(온클릭)
   return (
     <>
       <input

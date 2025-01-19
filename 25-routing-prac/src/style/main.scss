@@ -1,0 +1,43 @@
+@mixin header {
+  width: 100%;
+  background-color: antiquewhite;
+  padding: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.con {
+  @include header();
+  display: flex;
+  > nav {
+    margin-left: 50px;
+    > ul {
+      list-style: none;
+      display: flex;
+      > li {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+.con1 {
+  @include header();
+  > h4 {
+    > span {
+      color: lawngreen;
+    }
+  }
+  > p {
+    font-size: 0.8rem;
+    text-indent: 1rem;
+    > span {
+      color: red;
+    }
+  }
+  > button {
+    margin: 20px;
+  }
+}
