@@ -1,6 +1,7 @@
 import CustomHook from "./components/CustomHook.jsx";
 import Form from "./components/Form.jsx";
 import FormPrac from "./components/practice/FormPrac.jsx";
+import ProductFilter from "./components/practice/ProductFilter.jsx";
 import UseCallbackEx1 from "./components/UseCallbackEx1.jsx";
 import UseCallbackEx2 from "./components/UseCallbackEx2.jsx";
 import UseMemo1 from "./components/UseMemo1.jsx";
@@ -22,6 +23,9 @@ function App() {
       <CustomHook />
       {/* <Form /> */}
       {/* <FormPrac /> */}
+
+      {/* 노션 실습 */}
+      <ProductFilter />
     </>
   );
 }
