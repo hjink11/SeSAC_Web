@@ -10,6 +10,8 @@ export default function Practice() {
         <Link to="/practice/codingon" style={{ marginRight: "10px" }}>
           코딩온실습문제
         </Link>
+        {/* /practice/matzip 으로 이동 */}
+        <Link to={"matzip"}>맛집모음</Link>
       </div>
     </main>
   );

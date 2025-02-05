@@ -3,3 +3,10 @@ export interface TodoItemInterface {
   text: string;
   done: boolean;
 }
+
+export interface MatzipInterface {
+  idx?: number;
+  imgSrc: string;
+  title: string;
+  desc: string;
+}
