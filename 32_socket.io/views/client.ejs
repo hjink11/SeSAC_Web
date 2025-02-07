@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>socket.io emit, on 기본</title>
+    <!-- socket.io cdn -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <!-- 채팅내용 -->
+    <ul></ul>
+    <form id="chat">
+      <input type="text" id="user" placeholder="사용자명" />
+      <input type="text" id="message" placeholder="채팅 내용" />
+      <button type="submit">보내기</button>
+    </form>
+
+    <br />
+
+    <!-- 수업실습 -->
+    <a href="/clinet_prac">실습1 </a>
+
+    <script>
+      // io() 함수가 소켓 생성 및 연결 설정
+      const socket = io();
+
+      //-- [on과 emit 사용해보기]
+      // 1. client > server > client
+      // 이벤트를 발생시켜 서버로 보내고 서버가 전달한데이터를 다시 받아줌
+      // 이벤트 server로 보내기(발생),인자 여러개 가능,인자 5개 마지막은 콜백함수
+      socket.emit(
+        "event_name", //arg1
+        "hello", //arg2
+        10, //arg3
+        { name: "allie" },
+        //server에서 다시 보내는 데이터를 받는 callback
+        (res1, res2, res3) => {
+          console.log(res1, res2, res3); // 서버에서 데이터를 받아서
+          //hello 10 { name: 'allie' } 가 찍힘
+        }
+      );
+
+      // -- 2. client > server
+      // 데이터를 다시 받아주는 cb가 없을때
+      socket.emit("cb_test", "안녕하세요!");
+
+      //--- 3-1 server > client, 클라이언트 전체에게 io
+      socket.on("entire_client", (msg) => {
+        console.log("entire_client: ", msg);
+        //전체메세지 이벤트라서 새로운 사람이 들어오면 계속 콘솔이 찍힌다.
+      });
+      //--- 3-2 server > client, 클라이언트 하나에게
+      socket.on("one_client", (msg) => {
+        console.log("one_client : ", msg);
+      });
+
+      //---------- 채팅 만들기----------
+      // 나의 메세지가 나만보이는 이벤트로 서버로 전달
+      socket.emit(
+        "new_message1",
+        { name: "client", message: "서버 접속" },
+        (arg) => {
+          console.log(arg);
+        }
+      );
+
+      const chatForm = document.querySelector("#chat");
+      const user = chatForm.querySelector("#user");
+      const message = chatForm.querySelector("#message");
+      const ul = document.querySelector("ul");
+
+      // -- form 이벤트
+      chatForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // ----나의 메세지가 나에게만 보임
+        socket.emit(
+          "new_message1",
+          {
+            name: user.value,
+            message: message.value,
+          },
+          (data) => {
+            // 콜백함수의 data는 서버에서 받아오는
+            //data : {name:String, message:String} 타입스크립트 생각!
+            const li = document.createElement("li");
+            li.textContent = `${data.name}: ${data.message}`;
+            ul.append(li);
+            li.style.color = "orange";
+          }
+        );
+
+        // ----나의 메세지가 모두에게 보이도록
+        socket.emit("new_message2", {
+          name: user.value,
+          message: message.value,
+        });
+      });
+      // server에서 위에 이벤트로 메세지 받고 io로 모두에게 전달하는 이벤트를 받는다
+      socket.on("message_render", (data) => {
+        // data : {name:String, message:String}
+        const li = document.createElement("li");
+        li.textContent = `${data.name}: ${data.message}`;
+        ul.append(li);
+        li.style.color = "blue";
+      });
+    </script>
+  </body>
+</html>
