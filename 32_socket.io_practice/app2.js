@@ -42,18 +42,35 @@ io.on("connection", (socket) => {
         `${nickInfo[socket.id]}님이 입장하셨습니다.`
       );
     }
-    // 4 입장 성공 나를 포함한 전체 클라이언트에게 전체 닉네임 정보 전달
+    // --(마지막수업)4 입장 성공 나를 포함한 전체 클라이언트에게 전체 닉네임 정보 전달
     io.emit("updateNicks", nickInfo);
   });
 
   // console.log("connected > ", socket.id, socket.rooms);
 
   // --실습 3 입장 1. 나를 제외 모두에게
-  // 4-2  하나에게서 받아서 전체에
-  socket.on("send", (msg) => {
-    // console.log(`${socket.id}:${msg}`);
-    // 메세지 전달시 아이디 대신에 닉네임을 전달한다.
-    io.emit("message", { id: nickInfo[socket.id], message: msg }); // 아이디가 아니라 닉네이정보임
+  // 4-2  하나에게서 받아서 전체에  ==> (5) dm 보내기에서 수정
+  socket.on("send", (msgData) => {
+    // msgData:{myNick, dm="socket.id" 혹은 "all", msg}
+
+    if (msgData.dm === "all") {
+      // 전체에게 보내기  {아이디와 메세지}
+      io.emit("message", { id: msgData.myNick, message: msgData.msg });
+    } else {
+      let dmSocketId = msgData.dm; // dm 받는 socket.id
+      // 특정 클라이언트에게만 보내기 (나를 제외) {id, 메세지, isDm:true}
+      io.to(dmSocketId).emit("message", {
+        id: msgData.myNick,
+        message: msgData.msg,
+        isDm: true,
+      });
+      // 나에게만 보내기 (지금연결된 소켓 =나)
+      socket.emit("message", {
+        id: msgData.myNick,
+        message: msgData.msg,
+        isDm: true,
+      });
+    }
   });
 
   // 클라이언트 퇴장 공고
