@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Bank() {
   const [inputNumber, setInpuetNumber] = useState(0);
   //bank 리듀서를 !!!  store에 저장되어 있는 state 값져오기
+  // state.bank는 rootReducer에서 정한 reducer 이름임!
   const balance = useSelector((state) => state.bank);
   console.log("잔액", balance); //잔액 0 (기본값)
 

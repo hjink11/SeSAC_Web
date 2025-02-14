@@ -1,10 +1,11 @@
 //1 reducer 만들기
 
 //action type의 문자열을 상수화 (이건 기본 만들고 나중에 만들었음)
+// store/index.js 에서 rootReducer의 reducer 이름/타입?
 const DEPOSIT = "bank/DEPOSIT";
 const WITHDRAW = "bank/WITHDRAW";
 
-//액션 리턴 함수 (이것도 기본 만들고 나중에 만듬)
+//액션 리턴 함수 (이것도 기본 만들고 나중에 만듬)-->Bank.jsx에서 onclick
 export const deposit = (payload) => ({
   type: DEPOSIT,
   payload: payload,
