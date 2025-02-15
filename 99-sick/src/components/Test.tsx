@@ -1,21 +1,11 @@
-import { Link } from "react-router-dom";
+import Folder from "./Folder";
 
 export default function Test() {
   return (
     <>
-      <h1>main</h1>
-      <Link to={"/test2"}>테스트2</Link>
-      <p>Text</p>
-      <p>Text</p>
-      <p>Text</p>
-      <p>Text</p>
-      <p>Text</p>
-      <p>Text</p>
-      <p>Text</p>
-      <p>Text</p>
-      <p>Text</p>
-      <p>Text</p>
-      <p>Text</p>
+      <main>
+        <Folder />
+      </main>
     </>
   );
 }
