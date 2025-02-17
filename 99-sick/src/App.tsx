@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Test from "./components/Test";
-import Test2 from "./components/Test2";
+// import Test2 from "./components/Test2";
 import Main from "./pages/Main";
+import Test2 from "./components/Test2";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/test" element={<Test />} />
+        {/* <Route path="/test2" element={<Test2 />} /> */}
         <Route path="/test2" element={<Test2 />} />
       </Routes>
     </>

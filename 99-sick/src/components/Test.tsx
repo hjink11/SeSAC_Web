@@ -3,7 +3,7 @@ import Folder from "./Folder";
 export default function Test() {
   return (
     <>
-      <main>
+      <main className="box-content">
         <Folder />
       </main>
     </>
